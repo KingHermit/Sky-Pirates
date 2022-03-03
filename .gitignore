@@ -1,4 +1,5 @@
 [Ll]ibrary
+[Ll]ogs
 [Tt]emp
 [Oo]bj
 [Bb]uild
@@ -35,3 +36,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Sky Pirates/UserSettings/Layouts/default-2021.dwlt
+Sky Pirates/UserSettings/Layouts/default-2021.dwlt
+Sky Pirates/UserSettings/Layouts/default-2021.dwlt
