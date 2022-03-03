@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     // lifespans and Timers
     public float bulletLifespan = 2.5f;
 
+    // healths
+    public int health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +36,8 @@ public class PlayerController : MonoBehaviour
 
         myRb.velocity = velocity;
 
-        // MOVEMENT CODE
 
+        // SHOOT CODE
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -44,5 +47,26 @@ public class PlayerController : MonoBehaviour
             Destroy(b, bulletLifespan);
         }
 
+
+        // HEALTH CODE
+
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
+
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "eBullet")
+        {
+            Debug.Log("ouchie");
+            health = health - 5;
+            // health--;
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
+

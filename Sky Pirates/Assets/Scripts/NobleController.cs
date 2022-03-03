@@ -9,6 +9,8 @@ public class NobleController : MonoBehaviour
     public float rateOfFire = 2f;
     public float rofTimer = 0;
 
+    public int health = 25;
+
     public bool canShoot = true;
 
     public GameObject ball;
@@ -45,12 +47,20 @@ public class NobleController : MonoBehaviour
                 rofTimer = 0;
             }
         }
+
+        // DIE CODE
+        if (health < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "cannon ball")
+        if(collision.gameObject.tag == "pBullet")
         {
+            Debug.Log("OWWWW");
+            health = health - 10;
             Destroy(collision.gameObject);
         }
     }
