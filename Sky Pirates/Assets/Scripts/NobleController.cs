@@ -17,6 +17,8 @@ public class NobleController : MonoBehaviour
 
     public GameObject ball;
 
+    public LayerMask mask;
+
     Rigidbody2D rB;
 
     // Start is called before the first frame update
@@ -61,6 +63,8 @@ public class NobleController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Physics2D.IgnoreLayerCollision(7, 8);
     }
 
 
