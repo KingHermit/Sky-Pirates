@@ -6,12 +6,14 @@ public class NobleController : MonoBehaviour
 {
     public float ballSpeed = 7.0f;
     public float ballLifespan = 2.5f;
-    public float rateOfFire = 2f;
+    public float rateOfFire = 0.5f;
     public float rofTimer = 0;
+    public int bulletCount = 0;
 
     public int health = 25;
 
     public bool canShoot = true;
+    public bool readyToShoot = false;
 
     public GameObject ball;
 
@@ -26,18 +28,24 @@ public class NobleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canShoot)
+        if (canShoot & readyToShoot & bulletCount < 3)
         {
             GameObject b = Instantiate(ball, transform);
+            bulletCount++;
             Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), b.GetComponent<CapsuleCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-ballSpeed, 0);
 
             canShoot = false;
 
             Destroy(b, ballLifespan);
+
+            if (bulletCount == 3)
+            {
+                StartCoroutine("bulletCooldown");
+            }
         }
         
-        if (canShoot == false && rofTimer < rateOfFire)
+        if (canShoot == false && rofTimer < rateOfFire & readyToShoot)
         {
             rofTimer += Time.deltaTime;
 
@@ -55,6 +63,18 @@ public class NobleController : MonoBehaviour
         }
     }
 
+
+
+    // bullet shoot interval
+    IEnumerator bulletCooldown ()
+    {
+        Debug.Log("Wait for it");
+        yield return new WaitForSeconds(2);
+        bulletCount = 0;
+    }
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "pBullet")
@@ -62,6 +82,14 @@ public class NobleController : MonoBehaviour
             Debug.Log("OWWWW");
             health = health - 10;
             Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "ShootZone")
+        {
+            readyToShoot = true;
         }
     }
 }

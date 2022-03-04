@@ -18,6 +18,11 @@ public class moveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.tag == "enemy")
+        {
+            moveSpeed = 0.6f;
+        }
+
         myRB.velocity = new Vector2(-moveSpeed, 0);
 
         if (transform.position.x < leftBound)
