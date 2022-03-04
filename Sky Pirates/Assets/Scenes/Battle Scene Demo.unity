@@ -632,8 +632,11 @@ MonoBehaviour:
   bulletSpeed: 7.5
   myRb: {fileID: 975006933}
   bullet: {fileID: 9061262348736704446, guid: 0a1e3b1a5ff692e49b11c68aa269d4f4, type: 3}
+  cannonBall: {fileID: 1054865454509233485, guid: d21d4f2eccc63a9468ee571aff675e2f, type: 3}
   bulletLifespan: 2.5
+  ballCooldown: 5
   health: 100
+  ballin: 1
   playerUp: {fileID: 676410198, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
   playerDown: {fileID: 322517, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
   playerNeut: {fileID: 770895253, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
