@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     // healths
     public int health = 100;
 
+    public Sprite playerUp;
+    public Sprite playerDown;
+    public Sprite playerNeut;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,18 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        // SPRITE CHANGE CODE
+        if (velocity.y > 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = playerUp;
+        } else if (velocity.y < 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = playerDown;
+        } else if (velocity.y == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = playerNeut;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
