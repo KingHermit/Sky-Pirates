@@ -5,7 +5,7 @@ using UnityEngine;
 public class NobleController : MonoBehaviour
 {
     public float ballSpeed = 7.0f;
-    public float ballLifespan = 2.5f;
+    public float ballLifespan = 5f;
     public float rateOfFire = 0.5f;
     public float rofTimer = 0;
     public int bulletCount = 0;
@@ -30,6 +30,8 @@ public class NobleController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics2D.IgnoreLayerCollision(6, 7);
+
         if (canShoot & readyToShoot & bulletCount < 3)
         {
             GameObject b = Instantiate(ball, transform);
@@ -64,7 +66,7 @@ public class NobleController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        Physics2D.IgnoreLayerCollision(7, 8);
+        Physics2D.IgnoreLayerCollision(6, 8);
     }
 
 
@@ -73,7 +75,7 @@ public class NobleController : MonoBehaviour
     IEnumerator bulletCooldown ()
     {
         Debug.Log("Wait for it");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         bulletCount = 0;
     }
 

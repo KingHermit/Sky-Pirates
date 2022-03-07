@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 389052291357147314}
   - component: {fileID: 4857367999993033081}
   - component: {fileID: 4269246103614246413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pew pew bulllet
   m_TagString: pBullet
   m_Icon: {fileID: 0}

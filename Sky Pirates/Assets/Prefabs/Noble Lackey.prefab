@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeed: 5
-  ballLifespan: 2.5
+  ballLifespan: 5
   rateOfFire: 0.5
   rofTimer: 0
   bulletCount: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   canShoot: 0
   readyToShoot: 0
   ball: {fileID: 3578376709943573680, guid: 48e512b06cb1f1345872b459dd6abb37, type: 3}
+  pBullet: {fileID: 9061262348736704446, guid: 0a1e3b1a5ff692e49b11c68aa269d4f4, type: 3}
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -161,6 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5098fa075ccb3a84bb797f38a8756cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
   leftBound: -75
+  inShootZone: 0
   myRB: {fileID: 3608324305536844841}
