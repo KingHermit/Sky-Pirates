@@ -554,6 +554,7 @@ GameObject:
   - component: {fileID: 975006934}
   - component: {fileID: 975006933}
   - component: {fileID: 975006932}
+  - component: {fileID: 975006937}
   m_Layer: 0
   m_Name: Bandanit
   m_TagString: Untagged
@@ -704,6 +705,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975006937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975006931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2688a8f5a8918542a487d9b6f2549e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCamera: {fileID: 968737477}
 --- !u!1 &1133568637
 GameObject:
   m_ObjectHideFlags: 0
