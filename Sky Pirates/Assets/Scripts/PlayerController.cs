@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRb;
     public GameObject bullet;
     public GameObject cannonBall;
+    public GameObject healthIcon;
+    public GameObject healthBar;
 
     // lifespans and Timers
     public float bulletLifespan = 2.5f;
@@ -27,6 +29,9 @@ public class PlayerController : MonoBehaviour
     public Sprite playerUp;
     public Sprite playerDown;
     public Sprite playerNeut;
+    public Sprite healthy;
+    public Sprite hurty;
+    public Sprite dead;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +80,31 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
+
+        // HEALTH BAR CODE
+        if (health < 90 & health > 70)
+        {
+            healthBar.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.6230f, 1);
+            healthIcon.GetComponent<SpriteRenderer>().sprite = healthy;
+        }
+        else if (health < 70 & health > 50)
+        {
+            healthBar.GetComponent<Transform>().localScale = new Vector3(10.5f, 0.6230f, 1);
+            healthIcon.GetComponent<SpriteRenderer>().sprite = healthy;
+        }
+        else if (health < 50 & health > 30)
+        {
+            healthBar.GetComponent<Transform>().localScale = new Vector3(5.5f, 0.6230f, 1);
+            healthIcon.GetComponent<SpriteRenderer>().sprite = hurty;
+        }
+        else if (health < 30 & health > 10)
+        {
+            healthBar.GetComponent<Transform>().localScale = new Vector3(2f, 0.6230f, 1);
+            healthIcon.GetComponent<SpriteRenderer>().sprite = dead;
+        }
+
 
 
         // SPRITE CHANGE CODE
