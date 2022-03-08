@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        healthBarImage.fillAmount = Mathf.Clamp(player.health / player.maxHealth, 0, 1f);
+        healthBarImage.fillAmount = healthBarImage.fillAmount - 0.05f;
     }
 
     // Start is called before the first frame update

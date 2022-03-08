@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bullet;
     public GameObject cannonBall;
     public Image healthIcon;
-    public Image healthBarImage;
+    public Image healthBar;
 
     // lifespans and Timers
     public float bulletLifespan = 2.5f;
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // healths
     public int health = 100;
     public int maxHealth = 100;
-    public HealthBar healthBar;
+    public HealthBar healthBarScript;
 
     // UI text
     public int score = 0;
@@ -95,27 +95,22 @@ public class PlayerController : MonoBehaviour
         
         if (health < 90 & health > 70)
         {
-            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.4438875f, 1);
+            //healthBarScriptImage.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.4438875f, 1);
             healthIcon.GetComponent<Image>().sprite = healthy;
         }
         else if (health < 70 & health > 50)
         {
-            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(10.5f, 0.4438875f, 1);
+            //healthBarScriptImage.GetComponent<Transform>().localScale = new Vector3(10.5f, 0.4438875f, 1);
             healthIcon.GetComponent<Image>().sprite = healthy;
         }
-        else if (health < 50 & health > 30)
+        else if (health < 50 & health > 40)
         {
-            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(7.5f, 0.4438875f, 1);
+            //healthBarScriptImage.GetComponent<Transform>().localScale = new Vector3(7.5f, 0.4438875f, 1);
             healthIcon.GetComponent<Image>().sprite = hurty;
         }
-        else if (health < 30 & health > 10)
+        else if (health < 25 & health > 5)
         {
-            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(4f, 0.4438875f, 1);
-            healthIcon.GetComponent<Image>().sprite = dead;
-        }
-        else if (health < 10 & health > 2)
-        {
-            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(2f, 0.4438875f, 1);
+            //healthBarScriptImage.GetComponent<Transform>().localScale = new Vector3(4f, 0.4438875f, 1);
             healthIcon.GetComponent<Image>().sprite = dead;
         }
         
@@ -166,7 +161,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("ow");
             // Debug.Log("ouchie");
             health = health - 5;
-            healthBar.UpdateHealthBar();
+            healthBarScript.UpdateHealthBar();
             Destroy(collision.gameObject);
         }
     }

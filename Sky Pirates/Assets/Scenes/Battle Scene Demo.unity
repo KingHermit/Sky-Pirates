@@ -213,8 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5a3ba1c3e4a6444baa6ca844ac1b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarImage: {fileID: 0}
-  player: {fileID: 0}
+  healthBarImage: {fileID: 97083701}
+  player: {fileID: 975006934}
 --- !u!1 &97083699
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -475, y: 235}
+  m_AnchoredPosition: {x: -383, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496792386
@@ -633,7 +633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 495, y: 235}
+  m_AnchoredPosition: {x: 423, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &508432943
@@ -1035,12 +1035,12 @@ MonoBehaviour:
   bullet: {fileID: 9061262348736704446, guid: 0a1e3b1a5ff692e49b11c68aa269d4f4, type: 3}
   cannonBall: {fileID: 1054865454509233485, guid: d21d4f2eccc63a9468ee571aff675e2f, type: 3}
   healthIcon: {fileID: 771195244}
-  healthBarImage: {fileID: 97083701}
+  healthBar: {fileID: 97083701}
   bulletLifespan: 2.5
   ballCooldown: 5
   health: 100
   maxHealth: 100
-  healthBar: {fileID: 0}
+  healthBarScript: {fileID: 45782157}
   score: 0
   money: 0
   ballin: 1
