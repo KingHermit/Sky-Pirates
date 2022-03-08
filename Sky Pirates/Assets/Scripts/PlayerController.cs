@@ -164,6 +164,14 @@ public class PlayerController : MonoBehaviour
             healthBarScript.UpdateHealthBar();
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.tag == "enemy")
+        {
+            StartCoroutine("ow");
+            health = health - 20;
+            healthBarScript.UpdateHealthBar();
+            Destroy(collision.gameObject);
+        }
     }
 
 }
