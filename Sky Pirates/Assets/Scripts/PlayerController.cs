@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRb;
     public GameObject bullet;
     public GameObject cannonBall;
-    public GameObject healthIcon;
-    public GameObject healthBar;
+    public Image healthIcon;
+    public Image healthBarImage;
 
     // lifespans and Timers
     public float bulletLifespan = 2.5f;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     // healths
     public int health = 100;
+    public int maxHealth = 100;
+    public HealthBar healthBar;
 
     // bools
     public bool ballin = true;
@@ -84,27 +87,34 @@ public class PlayerController : MonoBehaviour
 
 
         // HEALTH BAR CODE
+
+        
         if (health < 90 & health > 70)
         {
-            healthBar.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.6230f, 1);
-            healthIcon.GetComponent<SpriteRenderer>().sprite = healthy;
+            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.4438875f, 1);
+            healthIcon.GetComponent<Image>().sprite = healthy;
         }
         else if (health < 70 & health > 50)
         {
-            healthBar.GetComponent<Transform>().localScale = new Vector3(10.5f, 0.6230f, 1);
-            healthIcon.GetComponent<SpriteRenderer>().sprite = healthy;
+            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(10.5f, 0.4438875f, 1);
+            healthIcon.GetComponent<Image>().sprite = healthy;
         }
         else if (health < 50 & health > 30)
         {
-            healthBar.GetComponent<Transform>().localScale = new Vector3(5.5f, 0.6230f, 1);
-            healthIcon.GetComponent<SpriteRenderer>().sprite = hurty;
+            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(7.5f, 0.4438875f, 1);
+            healthIcon.GetComponent<Image>().sprite = hurty;
         }
         else if (health < 30 & health > 10)
         {
-            healthBar.GetComponent<Transform>().localScale = new Vector3(2f, 0.6230f, 1);
-            healthIcon.GetComponent<SpriteRenderer>().sprite = dead;
+            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(4f, 0.4438875f, 1);
+            healthIcon.GetComponent<Image>().sprite = dead;
         }
-
+        else if (health < 10 & health > 2)
+        {
+            //healthBarImage.GetComponent<Transform>().localScale = new Vector3(2f, 0.4438875f, 1);
+            healthIcon.GetComponent<Image>().sprite = dead;
+        }
+        
 
 
         // SPRITE CHANGE CODE
@@ -119,6 +129,7 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = playerNeut;
         }
     }
+
 
 
 
@@ -149,8 +160,9 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "eBullet")
         {
             StartCoroutine("ow");
-            Debug.Log("ouchie");
+            // Debug.Log("ouchie");
             health = health - 5;
+            healthBar.UpdateHealthBar();
             Destroy(collision.gameObject);
         }
     }
