@@ -346,10 +346,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 975006931}
-    - target: {fileID: 3608324305536844839, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
-      propertyPath: pBullet
-      value: 
-      objectReference: {fileID: 9061262348736704446, guid: 0a1e3b1a5ff692e49b11c68aa269d4f4, type: 3}
     - target: {fileID: 3608324305536844840, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
       propertyPath: m_Name
       value: Noble Lackey
@@ -1050,6 +1046,7 @@ MonoBehaviour:
   healthy: {fileID: 1578249562, guid: 1a2d784702382d54886b363cf43075ea, type: 3}
   hurty: {fileID: 628795212, guid: 1a2d784702382d54886b363cf43075ea, type: 3}
   dead: {fileID: -391056897, guid: 1a2d784702382d54886b363cf43075ea, type: 3}
+  explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
 --- !u!212 &975006935
 SpriteRenderer:
   m_ObjectHideFlags: 0

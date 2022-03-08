@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public Sprite healthy;
     public Sprite hurty;
     public Sprite dead;
+    public Sprite explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -161,16 +162,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("ow");
             // Debug.Log("ouchie");
             health = health - 5;
-            healthBarScript.UpdateHealthBar();
+            healthBarScript.UpdateHealthBar(0.05f);
             Destroy(collision.gameObject);
         }
 
         if (collision.gameObject.tag == "enemy")
         {
+            collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
             StartCoroutine("ow");
             health = health - 20;
-            healthBarScript.UpdateHealthBar();
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+            healthBarScript.UpdateHealthBar(.20f);
+            Destroy(collision.gameObject, 0.5f);
         }
     }
 

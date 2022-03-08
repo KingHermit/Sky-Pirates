@@ -8,9 +8,10 @@ public class HealthBar : MonoBehaviour
     public Image healthBarImage;
     public PlayerController player;
 
-    public void UpdateHealthBar()
+    public void UpdateHealthBar(float damage)
     {
-        healthBarImage.fillAmount = healthBarImage.fillAmount - 0.05f;
+        //healthBarImage.fillAmount = healthBarImage.fillAmount - 0.05f;
+        healthBarImage.fillAmount -= damage;
     }
 
     // Start is called before the first frame update
