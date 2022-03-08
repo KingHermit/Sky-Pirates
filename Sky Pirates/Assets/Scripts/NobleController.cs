@@ -16,6 +16,7 @@ public class NobleController : MonoBehaviour
     public bool readyToShoot = false;
 
     public GameObject ball;
+    public GameObject player;
 
     public LayerMask mask;
 
@@ -25,6 +26,7 @@ public class NobleController : MonoBehaviour
     void Start()
     {
         rB = GetComponent<Rigidbody2D>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class NobleController : MonoBehaviour
         // DIE CODE
         if (health < 1)
         {
+            player.GetComponentInParent<PlayerController>().score += 10;
             Destroy(gameObject);
         }
 

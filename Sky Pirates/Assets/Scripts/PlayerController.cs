@@ -25,6 +25,10 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 100;
     public HealthBar healthBar;
 
+    // UI text
+    public int score = 0;
+    public int money = 0;
+
     // bools
     public bool ballin = true;
 
