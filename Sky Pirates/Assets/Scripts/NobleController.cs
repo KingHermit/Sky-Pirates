@@ -11,9 +11,11 @@ public class NobleController : MonoBehaviour
     public int bulletCount = 0;
 
     public int health = 25;
+    public Sprite explosion;
 
     public bool canShoot = true;
     public bool readyToShoot = false;
+    public bool isDead = false;
 
     public GameObject ball;
     public GameObject player;
@@ -63,10 +65,10 @@ public class NobleController : MonoBehaviour
         }
 
         // DIE CODE
-        if (health < 1)
+        if (health < 1 & !isDead)
         {
             player.GetComponentInParent<PlayerController>().score += 10;
-            Destroy(gameObject);
+            StartCoroutine("dead");
         }
 
         Physics2D.IgnoreLayerCollision(6, 8);
@@ -82,14 +84,27 @@ public class NobleController : MonoBehaviour
         bulletCount = 0;
     }
 
+    IEnumerator dead()
+    {
+        // Debug.Log("explosion")
+        isDead = true;
+        gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+        yield return new WaitForSeconds(0.3f);
+        Destroy(gameObject);
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "pBullet")
         {
-            Debug.Log("OWWWW");
             health = health - 10;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "pCannon")
+        {
+            health = health - 20;
             Destroy(collision.gameObject);
         }
     }

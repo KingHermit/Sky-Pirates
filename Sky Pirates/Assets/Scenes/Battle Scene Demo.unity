@@ -160,7 +160,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -114.2681, y: -160.5622}
+  m_AnchoredPosition: {x: -100, y: -160.5622}
   m_SizeDelta: {x: 95.3601, y: 1.6624}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45782155
@@ -346,6 +346,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 975006931}
+    - target: {fileID: 3608324305536844839, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
+      propertyPath: playerC
+      value: 
+      objectReference: {fileID: 975006934}
+    - target: {fileID: 3608324305536844839, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
     - target: {fileID: 3608324305536844840, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
       propertyPath: m_Name
       value: Noble Lackey
@@ -550,8 +558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -383, y: 185}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -343, y: 165.44446}
+  m_SizeDelta: {x: 200.6154, y: 69.1111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496792386
 MonoBehaviour:
@@ -575,11 +583,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: efd8b598573e13841a980b0ee23602fc, type: 3}
-    m_FontSize: 25
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 48
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -633,7 +641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &508432942
 RectTransform:
   m_ObjectHideFlags: 0
@@ -842,7 +850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423.3, y: -155.6}
+  m_AnchoredPosition: {x: -409.0319, y: -155.6}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771195244
