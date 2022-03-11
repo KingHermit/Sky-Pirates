@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Vector2 spawnPos = new Vector2(17, Random.Range(-spawnRangeY, spawnRangeY));
+        Vector2 spawnPos = new Vector2(spawnPosX, Random.Range(-spawnRangeY, spawnRangeY));
 
         Instantiate(noble, spawnPos, noble.transform.rotation);
     }
