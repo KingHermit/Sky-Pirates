@@ -21,8 +21,7 @@ public class WaveManager2 : MonoBehaviour
     public Transform[] spawnPoints;
 
     public int currentWaveNumber = 1;
-
-    private Wave currentWave;
+    
     public float timeBetweenWaves = 5f;
     private float waveCountdown;
 
@@ -44,7 +43,6 @@ public class WaveManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentWave = waves[currentWaveNumber];
 
         if (state == SpawnState.WAITING)
         {
@@ -116,7 +114,7 @@ public class WaveManager2 : MonoBehaviour
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(1f/_wave.rate);
+            yield return new WaitForSeconds(10f/_wave.rate);
         }
 
         state = SpawnState.WAITING;
