@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
     // bools
     public bool ballin = true;
+    public bool isDead = false;
 
     // sprites
     public Sprite playerUp;
@@ -41,9 +42,13 @@ public class PlayerController : MonoBehaviour
     public Sprite dead;
     public Sprite explosion;
 
+    public ParticleSystem smokin;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
     }
 
@@ -84,11 +89,18 @@ public class PlayerController : MonoBehaviour
 
         // HEALTH CODE
 
-        if (health < 1)
+        if (health <= 0 && !isDead)
         {
-            Destroy(gameObject);
+            StartCoroutine("die");
+            isDead = true;
         }
 
+        /*
+        if (health == -5)
+        {
+            StartCoroutine("die");
+        }
+        */
 
 
         // HEALTH BAR CODE
@@ -152,6 +164,13 @@ public class PlayerController : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 1f, 1f, 1f);
     }
 
+    IEnumerator die()
+    {
+        smokin.Play();
+        yield return new WaitForSeconds(5);
+        Debug.Log("DIE");
+        Destroy(gameObject);
+    }
 
 
 
