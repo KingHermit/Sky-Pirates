@@ -1384,6 +1384,7 @@ MonoBehaviour:
   score: 0
   money: 0
   ballin: 1
+  isDead: 0
   playerUp: {fileID: 676410198, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
   playerDown: {fileID: 322517, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
   playerNeut: {fileID: 770895253, guid: ae329faf96bca3c4e88d06c9bdaff9a3, type: 3}
@@ -1391,6 +1392,7 @@ MonoBehaviour:
   hurty: {fileID: 628795212, guid: 1a2d784702382d54886b363cf43075ea, type: 3}
   dead: {fileID: -391056897, guid: 1a2d784702382d54886b363cf43075ea, type: 3}
   explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
+  smokin: {fileID: 0}
 --- !u!212 &975006935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1512,6 +1514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1133568639}
   - component: {fileID: 1133568641}
+  - component: {fileID: 1133568642}
   m_Layer: 0
   m_Name: WaveManager
   m_TagString: Untagged
@@ -1541,7 +1544,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133568637}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8119f8ff5a93db646bfc7ca58ed5c91f, type: 3}
   m_Name: 
@@ -1567,6 +1570,31 @@ MonoBehaviour:
     enemy: {fileID: 3608324305536844837, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
     count: 15
     rate: 10
+  spawnPoints:
+  - {fileID: 986800914}
+  - {fileID: 1211434696}
+  - {fileID: 1476407408}
+  - {fileID: 2077081223}
+  - {fileID: 1799563947}
+  - {fileID: 350263473}
+  currentWaveNumber: 1
+  timeBetweenWaves: 5
+  state: 2
+--- !u!114 &1133568642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133568637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c1614ac3a7a2b43ad02355012ee626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3608324305536844837, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
+  count: 4
+  rate: 2
   spawnPoints:
   - {fileID: 986800914}
   - {fileID: 1211434696}
@@ -2074,7 +2102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 975006934}
-  waves: {fileID: 1133568641}
+  waves: {fileID: 1133568642}
   scoreText: {fileID: 496792386}
   moneyText: {fileID: 508432943}
   waveText: {fileID: 763509420}
