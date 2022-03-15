@@ -20,6 +20,9 @@ public class WaveManager3 : MonoBehaviour
     private int nextWave = 0;
     */
 
+    public Transform shop;
+    public Transform shopSpawn;
+
     // Enemy Var
     public Transform enemy;
     public int count;
@@ -29,7 +32,7 @@ public class WaveManager3 : MonoBehaviour
     public Transform[] spawnPoints;
 
     // Wave number for UI
-    public int currentWaveNumber = 1;
+    public int currentWaveNumber = 0;
 
     // Time before next wave
     public float timeBetweenWaves = 5f;
@@ -68,7 +71,7 @@ public class WaveManager3 : MonoBehaviour
             }
         }
 
-        if (waveCountdown <= 0)
+        if (waveCountdown <= 0 && !ShopIsHere())
         {
             if (state != SpawnState.SPAWNING)
             {
@@ -88,9 +91,18 @@ public class WaveManager3 : MonoBehaviour
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
+        
+        Instantiate(shop, shopSpawn.position, transform.rotation);
 
-        currentWaveNumber++;
-        count = count + 3;
+        if(count >= 15)
+        {
+            return;
+        }
+        else
+        {
+            count = count + 2;
+        }
+
         if (rate >= 5)
         {
             return;
@@ -116,27 +128,43 @@ public class WaveManager3 : MonoBehaviour
         return true;
     }
 
+    bool ShopIsHere()
+    {
+        searchCountdown -= Time.deltaTime;
+        if (searchCountdown <= 0f)
+        {
+            searchCountdown = 1f;
+            if (GameObject.FindGameObjectWithTag("Shop") == null)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     IEnumerator SpawnWave()
     {
-        if(currentWaveNumber % 5 == 0)
+        currentWaveNumber++;
+
+        if (currentWaveNumber % 5 == 0)
         {
             Debug.Log("Boss Wave!");
         }
         else
         {
             Debug.Log("Incoming Wave!");
+
+            state = SpawnState.SPAWNING;
+
+            // Spawn
+            for (int i = 0; i < count; i++)
+            {
+                SpawnEnemy(enemy);
+                yield return new WaitForSeconds(10f / rate);
+            }
+
+            state = SpawnState.WAITING;
         }
-
-        state = SpawnState.SPAWNING;
-
-        // Spawn
-        for (int i = 0; i < count; i++)
-        {
-            SpawnEnemy(enemy);
-            yield return new WaitForSeconds(10f / rate);
-        }
-
-        state = SpawnState.WAITING;
 
         yield break;
     }
