@@ -13,7 +13,7 @@ public class ShopController : MonoBehaviour
     public float leftBound = -12;
 
     // Is it open or closed
-    public bool isOpen = false;
+    // public bool isOpen = false;
     public bool isClosed = false;
 
     public Rigidbody2D myRB;
@@ -28,14 +28,14 @@ public class ShopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isClosed && !isOpen)
+        if (isClosed)
         {
             GetComponent<SpriteRenderer>().sprite = closed;
             Physics2D.IgnoreLayerCollision(9, 10);
             Physics2D.IgnoreLayerCollision(7, 10);
             moveSpeed = 3;
         }
-        else if (isOpen && !isClosed)
+        else if (!isClosed)
         {
             GetComponent<SpriteRenderer>().sprite = open;
             moveSpeed = 2;
@@ -45,7 +45,6 @@ public class ShopController : MonoBehaviour
 
         if (transform.position.x < leftBound)
         {
-            isOpen = false;
             isClosed = false;
             Destroy(gameObject);
         }
@@ -55,8 +54,10 @@ public class ShopController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            moveSpeed = 0;
+            // moveSpeed = 0;
             Debug.Log("Don't hit my store!");
+            // GetComponent<BoxCollider2D>().isTrigger = true;
+            isClosed = true;
         }
     }
 

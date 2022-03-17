@@ -195,12 +195,12 @@ public class WaveManager3 : MonoBehaviour
         if (state >= 9)
         {
             _sc.isClosed = true;
-            _sc.isOpen = false;
+            // _sc.isOpen = false;
         }
         else if (state <= 8)
         {
             _sc.isClosed = false;
-            _sc.isOpen = true;
+            // _sc.isOpen = true;
         }
     }
 }
