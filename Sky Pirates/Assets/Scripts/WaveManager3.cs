@@ -20,6 +20,13 @@ public class WaveManager3 : MonoBehaviour
     private int nextWave = 0;
     */
 
+    public GameObject shopGO;
+    
+    // Shop state
+    public Sprite[] shopState;
+    
+    
+    // Shop spawn var
     public Transform shop;
     public Transform shopSpawn;
 
@@ -57,7 +64,6 @@ public class WaveManager3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (state == SpawnState.WAITING)
         {
             // Check if enemies are still alive
@@ -91,8 +97,8 @@ public class WaveManager3 : MonoBehaviour
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
-        
-        Instantiate(shop, shopSpawn.position, transform.rotation);
+
+        SpawnShop();
 
         if(count >= 15)
         {
@@ -176,5 +182,25 @@ public class WaveManager3 : MonoBehaviour
 
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, transform.rotation);
+    }
+
+    void SpawnShop()
+    {
+        int state = Random.Range(1, 10);
+
+        Instantiate(shop, shopSpawn.position, transform.rotation);
+
+        ShopController _sc = shopGO.GetComponent<ShopController>();
+
+        if (state >= 9)
+        {
+            _sc.isClosed = true;
+            _sc.isOpen = false;
+        }
+        else if (state <= 8)
+        {
+            _sc.isClosed = false;
+            _sc.isOpen = true;
+        }
     }
 }
