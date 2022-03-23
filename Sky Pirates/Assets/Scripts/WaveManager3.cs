@@ -192,12 +192,12 @@ public class WaveManager3 : MonoBehaviour
 
         ShopController _sc = shopGO.GetComponent<ShopController>();
 
-        if (state >= 9)
+        if (state >= 8)
         {
             _sc.isClosed = true;
             // _sc.isOpen = false;
         }
-        else if (state <= 8)
+        else if (state <= 7)
         {
             _sc.isClosed = false;
             // _sc.isOpen = true;

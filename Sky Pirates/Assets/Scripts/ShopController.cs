@@ -6,8 +6,7 @@ public class ShopController : MonoBehaviour
 {
     public WaveManager3 waveManager;
 
-    public Sprite closed;
-    public Sprite open;
+    public Animator anim;
 
     private float moveSpeed = 2;
     public float leftBound = -12;
@@ -23,6 +22,7 @@ public class ShopController : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody2D>();
         waveManager = GameObject.FindGameObjectWithTag("WaveM").GetComponent<WaveManager3>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,15 +30,18 @@ public class ShopController : MonoBehaviour
     {
         if (isClosed)
         {
-            GetComponent<SpriteRenderer>().sprite = closed;
+            anim.SetBool("ShopClosed", true);
             Physics2D.IgnoreLayerCollision(9, 10);
             Physics2D.IgnoreLayerCollision(7, 10);
             moveSpeed = 3;
+            Debug.Log("Closed");
         }
         else if (!isClosed)
         {
-            GetComponent<SpriteRenderer>().sprite = open;
+            anim.SetBool("ShopClosed", false);
+            Physics2D.IgnoreLayerCollision(7, 10);
             moveSpeed = 2;
+            Debug.Log("Open");
         }
 
         myRB.velocity = new Vector2(-moveSpeed, 0);
@@ -50,14 +53,15 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            // moveSpeed = 0;
+            moveSpeed = 0;
             Debug.Log("Don't hit my store!");
             // GetComponent<BoxCollider2D>().isTrigger = true;
-            isClosed = true;
+            // isClosed = true;
         }
     }
 
@@ -66,6 +70,27 @@ public class ShopController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             moveSpeed = 3;
+        }
+    }
+    */
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            moveSpeed = 0;
+            Debug.Log("Don't hit my store!");
+            // GetComponent<BoxCollider2D>().isTrigger = true;
+            // isClosed = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            moveSpeed = 3;
+            isClosed = true;
         }
     }
 }

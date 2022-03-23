@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4921548454578457063}
   - component: {fileID: 2448024837952082239}
   - component: {fileID: 2448024837952082232}
+  - component: {fileID: -6014380617107588843}
   m_Layer: 10
   m_Name: Coco
   m_TagString: Shop
@@ -76,15 +77,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26b942f50872b794f9579210a8db7644, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1.2800001, y: 1.28625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &4921548454578457063
@@ -104,8 +105,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1, y: 2}
+    oldSize: {x: 1.2800001, y: 1.28625}
+    newSize: {x: 1.2800001, y: 1.28625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -147,9 +148,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveManager: {fileID: 0}
-  closed: {fileID: 21300000, guid: 5a7b942d06b9b2a4da1c468f0a7315aa, type: 3}
-  open: {fileID: 21300000, guid: 26b942f50872b794f9579210a8db7644, type: 3}
+  anim: {fileID: -6014380617107588843}
   leftBound: -12
-  isOpen: 1
   isClosed: 0
   myRB: {fileID: 2448024837952082239}
+--- !u!95 &-6014380617107588843
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448024837952082233}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32fa5e48015cf54499a8c8aa7ffee3f7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

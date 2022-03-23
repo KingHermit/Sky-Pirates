@@ -34,9 +34,13 @@ public class PlayerController : MonoBehaviour
     public bool isDead = false;
 
     // sprites
+    public Animator anim;
+
+    /*
     public Sprite playerUp;
     public Sprite playerDown;
     public Sprite playerNeut;
+    */
     public Sprite healthy;
     public Sprite hurty;
     public Sprite dead;
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
     {
         smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,7 +75,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             GameObject b = Instantiate(bullet, transform);
-            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), b.GetComponent<CapsuleCollider2D>());
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), b.GetComponent<BoxCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
             Destroy(b, bulletLifespan);
         }
@@ -132,13 +137,14 @@ public class PlayerController : MonoBehaviour
         // SPRITE CHANGE CODE
         if (velocity.y > 0)
         {
-            GetComponent<SpriteRenderer>().sprite = playerUp;
+            //GetComponent<SpriteRenderer>().sprite = playerUp;
         } else if (velocity.y < 0)
         {
-            GetComponent<SpriteRenderer>().sprite = playerDown;
+            //GetComponent<SpriteRenderer>().sprite = playerDown;
         } else if (velocity.y == 0)
         {
-            GetComponent<SpriteRenderer>().sprite = playerNeut;
+            //GetComponent<SpriteRenderer>().sprite = playerNeut;
+            anim.Play("DefaultState");
         }
     }
 
