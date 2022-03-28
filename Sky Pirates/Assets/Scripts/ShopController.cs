@@ -81,7 +81,7 @@ public class ShopController : MonoBehaviour
             moveSpeed = 0;
             Debug.Log("Don't hit my store!");
             // GetComponent<BoxCollider2D>().isTrigger = true;
-            // isClosed = true;
+            // isClosed = false;
         }
     }
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aaf39204eb2471443892f048b226576f
+guid: 66628a0b7c4c74143a9b30bc36eb04a1
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,10 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Billo
+  - 04b
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 2
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1
