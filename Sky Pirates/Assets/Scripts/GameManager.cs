@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public PlayerController player;
-    public WaveManager3 waves;
+    // public WaveManager3 waves;
+    public WaveManager4 waves;
     public Text scoreText;
     public Text moneyText;
     public Text waveText;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManager3 : MonoBehaviour
+public class WaveManager4 : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
@@ -21,18 +21,43 @@ public class WaveManager3 : MonoBehaviour
     */
 
     public GameObject shopGO;
-    
+
+    // Shop state
+    public Sprite[] shopState;
+
+
     // Shop spawn var
     public Transform shop;
     public Transform shopSpawn;
 
     // Enemy Var
     public Transform enemy;
+    public Transform enemySine;
+    public Transform enemyVF;
+    public Transform enemyZZ;
     public int count;
     public float rate;
 
+    public int enemyWaveForm;
+
     // Enemy Spawn
     public Transform[] spawnPoints;
+
+    // Flying V Enemy Spawn
+    public Transform topY3;
+    public Transform tMidY2;
+    public Transform headY0;
+    public Transform bMidY2;
+    public Transform bottomY3;
+
+    // ZigZag Enemy Spawn
+    public Transform leadZZY2;
+    public Transform midZZY0;
+    public Transform bottomZZY2;
+    public Transform endZZY0;
+
+    // Wavy Enemy Spawn
+    public Transform sineSpawnPoint;
 
     // Wave number for UI
     public int currentWaveNumber = 0;
@@ -89,14 +114,14 @@ public class WaveManager3 : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed!");
+        Debug.Log("Complete Wave" + currentWaveNumber + "!");
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
         SpawnShop();
 
-        if(count >= 15)
+        if (count >= 15)
         {
             return;
         }
@@ -122,7 +147,7 @@ public class WaveManager3 : MonoBehaviour
         if (searchCountdown <= 0f)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("enemy") == null)
+            if (GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
             {
                 return false;
             }
@@ -152,9 +177,54 @@ public class WaveManager3 : MonoBehaviour
         {
             Debug.Log("Boss Wave!");
         }
+        else if (currentWaveNumber % 3 == 0)
+        {
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Flying V");
+
+            state = SpawnState.SPAWNING;
+
+            // Spawn
+            for (int i = 0; i < enemyWaveForm; i++)
+            {
+                SpawnFlyingV(enemyVF);
+                yield return new WaitForSeconds(10f);
+            }
+
+            state = SpawnState.WAITING;
+        }
+        else if (currentWaveNumber % 1  == 0)
+        {
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Zig-Zag");
+
+            state = SpawnState.SPAWNING;
+
+            // Spawn
+            for (int i = 0; i < enemyWaveForm; i++)
+            {
+                SpawnZigZag(enemyZZ);
+                yield return new WaitForSeconds(6f);
+            }
+
+            state = SpawnState.WAITING;
+        }
+        else if (currentWaveNumber % 7 == 0)
+        {
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Wavy");
+
+            state = SpawnState.SPAWNING;
+
+            // Spawn
+            for (int i = 0; i < count; i++)
+            {
+                SpawnSineWave(enemySine);
+                yield return new WaitForSeconds(10f / rate);
+            }
+
+            state = SpawnState.WAITING;
+        }
         else
         {
-            Debug.Log("Incoming Wave!");
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Normal");
 
             state = SpawnState.SPAWNING;
 
@@ -169,15 +239,6 @@ public class WaveManager3 : MonoBehaviour
         }
 
         yield break;
-    }
-
-    void SpawnEnemy(Transform _enemy)
-    {
-        // Spawn enemy
-        Debug.Log("Spawning Enemy: " + _enemy.name);
-
-        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(_enemy, _sp.position, transform.rotation);
     }
 
     void SpawnShop()
@@ -198,5 +259,36 @@ public class WaveManager3 : MonoBehaviour
             _sc.isClosed = false;
             // _sc.isOpen = true;
         }
+    }
+
+    void SpawnEnemy(Transform _enemy)
+    {
+        // Spawn enemy
+        //Debug.Log("Spawning Enemy: " + _enemy.name);
+
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_enemy, _sp.position, transform.rotation);
+    }
+
+    void SpawnZigZag(Transform _enemy)
+    {
+        Instantiate(_enemy, leadZZY2.position, transform.rotation);
+        Instantiate(_enemy, midZZY0.position, transform.rotation);
+        Instantiate(_enemy, bottomZZY2.position, transform.rotation);
+        Instantiate(_enemy, endZZY0.position, transform.rotation);
+    }
+
+    void SpawnFlyingV(Transform _enemy)
+    {
+        Instantiate(_enemy, topY3.position, transform.rotation);
+        Instantiate(_enemy, tMidY2.position, transform.rotation);
+        Instantiate(_enemy, headY0.position, transform.rotation);
+        Instantiate(_enemy, bMidY2.position, transform.rotation);
+        Instantiate(_enemy, bottomY3.position, transform.rotation);
+    }
+
+    void SpawnSineWave(Transform _enemy)
+    {
+        Instantiate(_enemy, sineSpawnPoint.position, transform.rotation);
     }
 }

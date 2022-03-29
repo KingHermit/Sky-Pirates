@@ -38,7 +38,7 @@ public class NobleController : MonoBehaviour
 
         if (canShoot & readyToShoot & bulletCount < 3)
         {
-            GameObject b = Instantiate(ball, transform);
+            GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0,0,90));
             bulletCount++;
             Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), b.GetComponent<CapsuleCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-ballSpeed, 0);
@@ -79,7 +79,7 @@ public class NobleController : MonoBehaviour
     // bullet shoot interval
     IEnumerator bulletCooldown ()
     {
-        Debug.Log("Wait for it");
+        //Debug.Log("Wait for it");
         yield return new WaitForSeconds(4);
         bulletCount = 0;
     }

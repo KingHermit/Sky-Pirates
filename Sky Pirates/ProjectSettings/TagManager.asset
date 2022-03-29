@@ -11,6 +11,9 @@ TagManager:
   - WaveM
   - ShopSpawn
   - Shop
+  - enemyVF
+  - enemyZZ
+  - enemySine
   layers:
   - Default
   - TransparentFX
