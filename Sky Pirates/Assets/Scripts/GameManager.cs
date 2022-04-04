@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
-        scoreText.text = "Score: " + player.score;
-        moneyText.text = "Coins: " + player.money;
-        waveText.text = "Wave " + waves.currentWaveNumber;
+            scoreText.text = "Score: " + player.score;
+            moneyText.text = "Coins: " + player.money;
+            waveText.text = "Wave " + waves.currentWaveNumber;
         }
 
     }
