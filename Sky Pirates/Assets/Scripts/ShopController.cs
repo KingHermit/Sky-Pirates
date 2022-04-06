@@ -10,6 +10,7 @@ public class ShopController : MonoBehaviour
 
     private float moveSpeed = 2;
     public float leftBound = -12;
+    public bool 
 
     // Is it open or closed
     // public bool isOpen = false;
@@ -79,7 +80,7 @@ public class ShopController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             moveSpeed = 0;
-            Debug.Log("Don't hit my store!");
+            // Debug.Log("Don't hit my store!");
             // GetComponent<BoxCollider2D>().isTrigger = true;
             // isClosed = false;
         }
@@ -91,6 +92,7 @@ public class ShopController : MonoBehaviour
         {
             moveSpeed = 3;
             isClosed = true;
+            CannonBallCooldown();
         }
     }
 }

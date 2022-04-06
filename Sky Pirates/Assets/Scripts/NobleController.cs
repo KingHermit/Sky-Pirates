@@ -80,7 +80,7 @@ public class NobleController : MonoBehaviour
     IEnumerator bulletCooldown ()
     {
         //Debug.Log("Wait for it");
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         bulletCount = 0;
     }
 

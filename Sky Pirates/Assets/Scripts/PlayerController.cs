@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     public Sprite explosion;
 
     public ParticleSystem smokin;
+    public ShopController shop;
 
 
     // Start is called before the first frame update
@@ -191,7 +192,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.tag == "enemy")
+        if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
         {
             collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
             StartCoroutine("ow");
@@ -199,6 +200,15 @@ public class PlayerController : MonoBehaviour
             collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
             healthBarScript.UpdateHealthBar(.20f);
             Destroy(collision.gameObject, 0.5f);
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Shop")
+        {
+            // Debug.Log("random powerup");
         }
     }
 
