@@ -66,9 +66,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    maxTextureSize: 16384
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_0
+      name: FinalBandanitShip_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8035c15b290b5547abc339061d130e7
-      internalID: -460507455
+      spriteID: 8dd5b8a121161194b84e8af7d9f7bfb2
+      internalID: 1085083976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_1
+      name: FinalBandanitShip_1
       rect:
         serializedVersion: 2
         x: 128
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c60048dacf432564b96a97dc7fc11a49
-      internalID: 490214440
+      spriteID: 88904ceccfb780a49b8005abd2e17fb0
+      internalID: -1323699660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_2
+      name: FinalBandanitShip_2
       rect:
         serializedVersion: 2
         x: 256
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fedbbe8ec2b5c044aa0c19740d3935e0
-      internalID: -1383958523
+      spriteID: 91123f65951498c46b1f79ccae105d58
+      internalID: 1926278264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_3
+      name: FinalBandanitShip_3
       rect:
         serializedVersion: 2
         x: 384
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a1d0b25572117b40ac70ec6653ed7fe
-      internalID: -1204794715
+      spriteID: 6aa96e35dbda81f4094cd66aad97ef3b
+      internalID: -233460191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_4
+      name: FinalBandanitShip_4
       rect:
         serializedVersion: 2
         x: 512
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0fdcc286ab30744ba491ddb81c75125
-      internalID: -701779733
+      spriteID: 440aa2a9f81e25f46a28660142e6b46c
+      internalID: 301735521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_5
+      name: FinalBandanitShip_5
       rect:
         serializedVersion: 2
         x: 640
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398f92a61e9435e41a4c8a105afe1203
-      internalID: 1718722454
+      spriteID: 0221e44254fb38f49b50eaa82b89fa4a
+      internalID: 1248947466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_6
+      name: FinalBandanitShip_6
       rect:
         serializedVersion: 2
         x: 768
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78758acd56aa12a4cb69a287bcfed810
-      internalID: -417375975
+      spriteID: f2b01272f00071446b12391005311235
+      internalID: 1892877458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_7
+      name: FinalBandanitShip_7
       rect:
         serializedVersion: 2
         x: 896
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79c86b4bd89368344bdfb6c195d639ab
-      internalID: -2071270837
+      spriteID: 805f1487b28c01344b1faaf4d62e57a6
+      internalID: 1106687962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_8
+      name: FinalBandanitShip_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52ff4e382db45cc46b323a9d5ed89ec9
-      internalID: 908920776
+      spriteID: 13f868e8a1f8f1e4fa23815fbe47cb80
+      internalID: 29476463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_9
+      name: FinalBandanitShip_9
       rect:
         serializedVersion: 2
         x: 1152
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5890e67f4078fc543a55b2992ec359f7
-      internalID: 1236845016
+      spriteID: 318553fd19aef7748af556a02b7edfaf
+      internalID: 2004129532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_10
+      name: FinalBandanitShip_10
       rect:
         serializedVersion: 2
         x: 1280
@@ -328,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75060b16f0444c458b2488a8fdf9657
-      internalID: 167366028
+      spriteID: 7c82d0198c26172429f630837a67cab9
+      internalID: -886064954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_11
+      name: FinalBandanitShip_11
       rect:
         serializedVersion: 2
         x: 1408
@@ -349,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab337f75f44e2f9439bd8280bae368f1
-      internalID: 1574648617
+      spriteID: df2c83612810f10499da4528c7189490
+      internalID: -980544206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_12
+      name: FinalBandanitShip_12
       rect:
         serializedVersion: 2
         x: 1536
@@ -370,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dbd0c494fafe284c8e2504ecbb6dbf7
-      internalID: 469058564
+      spriteID: 6d748f5d8556f2f47a2ff800851a5164
+      internalID: -747440243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_13
+      name: FinalBandanitShip_13
       rect:
         serializedVersion: 2
         x: 1664
@@ -391,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f37a6038c2e7dfe4b8be7562e16692fd
-      internalID: 2144477734
+      spriteID: 39432b57550a0aa499547957dc0d1972
+      internalID: -500251894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_14
+      name: FinalBandanitShip_14
       rect:
         serializedVersion: 2
         x: 1792
@@ -412,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa0dd773d091bc54685deb3ebd6de813
-      internalID: -707762694
+      spriteID: 4c702d96f20012e4db1fe23ce8f5faf3
+      internalID: -1771677900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_15
+      name: FinalBandanitShip_15
       rect:
         serializedVersion: 2
         x: 1920
@@ -433,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3a134a76b59317468e358d3a7fbf6aa
-      internalID: 1562856240
+      spriteID: de4db08ca278e40448386f2d6a723a0a
+      internalID: -1483929279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_16
+      name: FinalBandanitShip_16
       rect:
         serializedVersion: 2
         x: 2048
@@ -454,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de9f478c9816d8640b935bb01bc6f5cd
-      internalID: -190819263
+      spriteID: 9c4c29b2341470440a74fe7cc7900c00
+      internalID: 1871911226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_17
+      name: FinalBandanitShip_17
       rect:
         serializedVersion: 2
         x: 2176
@@ -475,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800d66e98cd53a1428dc32064d91944d
-      internalID: 609942254
+      spriteID: bd73c338fd5e6864680754f8d0b8e399
+      internalID: 547411459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_18
+      name: FinalBandanitShip_18
       rect:
         serializedVersion: 2
         x: 2304
@@ -496,14 +496,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1be38d33aafdecf4ba1dd5528f5866da
-      internalID: -1880577224
+      spriteID: 83edc44c419ffcf458946fbac6051b7e
+      internalID: 1807320297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_19
+      name: FinalBandanitShip_19
       rect:
         serializedVersion: 2
         x: 2432
@@ -517,14 +517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e73099e47fbac3e48bb5fd3ebaf15180
-      internalID: -21134070
+      spriteID: 6195a905f31688a4597aaca9faebb0bf
+      internalID: -1621428745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pixilart Sprite Sheet_20
+      name: FinalBandanitShip_20
       rect:
         serializedVersion: 2
         x: 2560
@@ -538,8 +538,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eecb726a8118174da7c60461f4426f1
-      internalID: 583347183
+      spriteID: c2bbb1e57533d5a428741cea72de3690
+      internalID: -1726448082
       vertices: []
       indices: 
       edges: []
@@ -555,27 +555,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Pixilart Sprite Sheet_3: -1204794715
-      Pixilart Sprite Sheet_15: 1562856240
-      Pixilart Sprite Sheet_9: 1236845016
-      Pixilart Sprite Sheet_4: -701779733
-      Pixilart Sprite Sheet_0: -460507455
-      Pixilart Sprite Sheet_5: 1718722454
-      Pixilart Sprite Sheet_18: -1880577224
-      Pixilart Sprite Sheet_7: -2071270837
-      Pixilart Sprite Sheet_6: -417375975
-      Pixilart Sprite Sheet_1: 490214440
-      Pixilart Sprite Sheet_11: 1574648617
-      Pixilart Sprite Sheet_19: -21134070
-      Pixilart Sprite Sheet_14: -707762694
-      Pixilart Sprite Sheet_10: 167366028
-      Pixilart Sprite Sheet_17: 609942254
-      Pixilart Sprite Sheet_20: 583347183
-      Pixilart Sprite Sheet_8: 908920776
-      Pixilart Sprite Sheet_16: -190819263
-      Pixilart Sprite Sheet_12: 469058564
-      Pixilart Sprite Sheet_13: 2144477734
-      Pixilart Sprite Sheet_2: -1383958523
+      FinalBandanitShip_15: -1483929279
+      FinalBandanitShip_9: 2004129532
+      FinalBandanitShip_4: 301735521
+      FinalBandanitShip_2: 1926278264
+      FinalBandanitShip_17: 547411459
+      FinalBandanitShip_11: -980544206
+      FinalBandanitShip_0: 1085083976
+      FinalBandanitShip_5: 1248947466
+      FinalBandanitShip_18: 1807320297
+      FinalBandanitShip_20: -1726448082
+      FinalBandanitShip_6: 1892877458
+      FinalBandanitShip_3: -233460191
+      FinalBandanitShip_7: 1106687962
+      FinalBandanitShip_8: 29476463
+      FinalBandanitShip_14: -1771677900
+      FinalBandanitShip_10: -886064954
+      FinalBandanitShip_13: -500251894
+      FinalBandanitShip_12: -747440243
+      FinalBandanitShip_16: 1871911226
+      FinalBandanitShip_19: -1621428745
+      FinalBandanitShip_1: -1323699660
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
