@@ -6,25 +6,9 @@ public class WaveManager4 : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
 
-    /*
-    [System.Serializable]
-    public class Wave
-    {
-        public string name;
-        public Transform enemy;
-        public int count;
-        public float rate;
-    }
-
-    public Wave[] waves;
-    private int nextWave = 0;
-    */
-
     public GameObject shopGO;
 
-    // Shop state
-    public Sprite[] shopState;
-
+    public BlimpController blimpController;
 
     // Shop spawn var
     public Transform shop;
@@ -35,10 +19,11 @@ public class WaveManager4 : MonoBehaviour
     public Transform enemySine;
     public Transform enemyVF;
     public Transform enemyZZ;
+    public Transform enemyBoss;
     public int count;
     public float rate;
 
-    public int enemyWaveForm;
+    //public int enemyWaveForm = 5;
 
     // Enemy Spawn
     public Transform[] spawnPoints;
@@ -58,6 +43,9 @@ public class WaveManager4 : MonoBehaviour
 
     // Wavy Enemy Spawn
     public Transform sineSpawnPoint;
+
+    // Boss Blimp Spawn
+    public Transform bbSpawnPoint;
 
     // Wave number for UI
     public int currentWaveNumber = 0;
@@ -114,7 +102,7 @@ public class WaveManager4 : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Complete Wave" + currentWaveNumber + "!");
+        Debug.Log("Complete Wave " + currentWaveNumber + "!");
 
         state = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
@@ -147,7 +135,7 @@ public class WaveManager4 : MonoBehaviour
         if (searchCountdown <= 0f)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
+            if (GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("BossBlimp") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
             {
                 return false;
             }
@@ -173,9 +161,9 @@ public class WaveManager4 : MonoBehaviour
     {
         currentWaveNumber++;
 
-        if (currentWaveNumber % 5 == 0)
+        if (currentWaveNumber % 1 == 0)
         {
-            Debug.Log("Boss Wave!");
+            BlimpPilotsReady();
         }
         else if (currentWaveNumber % 3 == 0)
         {
@@ -184,7 +172,7 @@ public class WaveManager4 : MonoBehaviour
             state = SpawnState.SPAWNING;
 
             // Spawn
-            for (int i = 0; i < enemyWaveForm; i++)
+            for (int i = 0; i < 5; i++)
             {
                 SpawnFlyingV(enemyVF);
                 yield return new WaitForSeconds(10f);
@@ -192,17 +180,17 @@ public class WaveManager4 : MonoBehaviour
 
             state = SpawnState.WAITING;
         }
-        else if (currentWaveNumber % 1  == 0)
+        else if (currentWaveNumber % 4  == 0)
         {
             Debug.Log("Incoming Wave " + currentWaveNumber + ": Zig-Zag");
 
             state = SpawnState.SPAWNING;
 
             // Spawn
-            for (int i = 0; i < enemyWaveForm; i++)
+            for (int i = 0; i < 3; i++)
             {
                 SpawnZigZag(enemyZZ);
-                yield return new WaitForSeconds(6f);
+                yield return new WaitForSeconds(8f);
             }
 
             state = SpawnState.WAITING;
@@ -239,6 +227,37 @@ public class WaveManager4 : MonoBehaviour
         }
 
         yield break;
+    }
+
+    IEnumerator PilotsReady()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            SpawnFlyingV(enemyVF);
+            yield return new WaitForSeconds(11f);
+        }
+
+        state = SpawnState.WAITING;
+    }
+
+    void BlimpPilotsReady()
+    {
+        Debug.Log("Boss Wave!");
+
+        //Instantiate(enemyBoss, bbSpawnPoint.position, transform.rotation);
+        for (int i = 0; i < 1; i++)
+        {
+            SpawnBlimp(enemyBoss);
+        }
+
+        // Spawn
+        if (blimpController.isVulnerable == false)
+        {
+            Debug.Log("ready");
+            StartCoroutine(PilotsReady());
+        }
+
+        state = SpawnState.WAITING;
     }
 
     void SpawnShop()
@@ -290,5 +309,11 @@ public class WaveManager4 : MonoBehaviour
     void SpawnSineWave(Transform _enemy)
     {
         Instantiate(_enemy, sineSpawnPoint.position, transform.rotation);
+    }
+
+    void SpawnBlimp(Transform _blimp)
+    {
+        Transform tempBlimp = Instantiate(_blimp, bbSpawnPoint.position, transform.rotation);
+        blimpController = tempBlimp.gameObject.GetComponent<BlimpController>();
     }
 }

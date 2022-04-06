@@ -14,6 +14,7 @@ TagManager:
   - enemyVF
   - enemyZZ
   - enemySine
+  - BossBlimp
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Enemy
   - Player
   - Shop
-  - 
+  - Boss
   - 
   - 
   - 

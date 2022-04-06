@@ -72,6 +72,7 @@ public class NobleController : MonoBehaviour
         }
 
         Physics2D.IgnoreLayerCollision(6, 8);
+        Physics2D.IgnoreLayerCollision(6, 11);
     }
 
 
