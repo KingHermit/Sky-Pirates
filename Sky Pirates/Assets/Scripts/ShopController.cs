@@ -10,7 +10,7 @@ public class ShopController : MonoBehaviour
 
     private float moveSpeed = 2;
     public float leftBound = -12;
-    public bool 
+   
 
     // Is it open or closed
     // public bool isOpen = false;
@@ -92,7 +92,7 @@ public class ShopController : MonoBehaviour
         {
             moveSpeed = 3;
             isClosed = true;
-            CannonBallCooldown();
+            //CannonBallCooldown();
         }
     }
 }
