@@ -32,8 +32,25 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void startGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void highScore()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void creditsScene()
+    {
+
+        SceneManager.LoadScene(3);
+
     }
 }
