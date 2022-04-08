@@ -36,4 +36,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void highScore()
+    {
+        SceneManager.LoadScene(2);
+    }
 }

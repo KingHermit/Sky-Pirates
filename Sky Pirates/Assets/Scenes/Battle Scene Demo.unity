@@ -455,8 +455,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142849421}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.55, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.87, y: 0, z: 0}
   m_LocalScale: {x: 10.04, y: 10.04, z: 10.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6203,6 +6203,7 @@ Transform:
   - {fileID: 350263473}
   - {fileID: 2081793206}
   - {fileID: 1734698783}
+  - {fileID: 1749066118}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6477,6 +6478,7 @@ MonoBehaviour:
   dead: {fileID: 21300000, guid: bc5fe3a4adcadd340a59599a703fabd9, type: 3}
   explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
   smokin: {fileID: 263995906}
+  shop: {fileID: 0}
 --- !u!212 &975006935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6767,16 +6769,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopGO: {fileID: 2448024837952082233, guid: 7ecc79ad78826da48b26c685c0242665, type: 3}
-  shopState: []
+  blimpController: {fileID: 3030929908533392972, guid: 5c78e8abfb3d4c8419e266e33cd3506d, type: 3}
   shop: {fileID: 2448024837952082236, guid: 7ecc79ad78826da48b26c685c0242665, type: 3}
   shopSpawn: {fileID: 2081793206}
   enemy: {fileID: 3608324305536844837, guid: f1349d053f9fdb540bef88d3d3495c57, type: 3}
   enemySine: {fileID: 820657825537551674, guid: 45385ff0c516d884e9b49d7344fd70ba, type: 3}
   enemyVF: {fileID: 4008997607145873996, guid: 37249bef0a0731d449c09ae2064d5f14, type: 3}
   enemyZZ: {fileID: 7079715023427004011, guid: 24f4de188d0778d4ebef2b492830c7f5, type: 3}
+  enemyBoss: {fileID: 8434166696015466689, guid: 5c78e8abfb3d4c8419e266e33cd3506d, type: 3}
   count: 4
   rate: 2
-  enemyWaveForm: 3
   spawnPoints:
   - {fileID: 986800914}
   - {fileID: 1211434696}
@@ -6794,6 +6796,7 @@ MonoBehaviour:
   bottomZZY2: {fileID: 1622695360}
   endZZY0: {fileID: 32021735}
   sineSpawnPoint: {fileID: 1734698783}
+  bbSpawnPoint: {fileID: 1749066118}
   currentWaveNumber: 0
   timeBetweenWaves: 5
   state: 2
@@ -7224,7 +7227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526378019}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 32.15396, y: 0, z: 0}
+  m_LocalPosition: {x: 32.46, y: 0, z: 1}
   m_LocalScale: {x: 10.04, y: 10.04, z: 10.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7779,6 +7782,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 793876480}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1749066117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749066118}
+  m_Layer: 0
+  m_Name: Blimp SP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749066118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749066117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 793876480}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799563946
 GameObject:

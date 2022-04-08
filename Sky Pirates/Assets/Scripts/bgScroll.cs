@@ -13,7 +13,7 @@ public class bgScroll : MonoBehaviour
     {
         startPos = transform.position;
 
-        repeatWidth = GetComponent<BoxCollider2D>().size.x / 0.2f;
+        repeatWidth = GetComponent<BoxCollider2D>().size.x / 0.1f;
 
     }
 
