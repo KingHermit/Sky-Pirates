@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public PlayerController player;
     public dialogueTrigger dialogue;
+    public GameObject textBox;
     // public WaveManager3 waves;
     public WaveManager4 waves;
     public Text scoreText;
-    public Text moneyText;
     public Text waveText;
 
 
@@ -27,10 +27,13 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != 0)
         {
             scoreText.text = "Score: " + player.score;
-            moneyText.text = "Coins: " + player.money;
             waveText.text = "Wave " + waves.currentWaveNumber;
         }
 
+        if (!dialogue.inConvo)
+        {
+            textBox.SetActive(false);
+        }
     }
 
     public void mainMenu()

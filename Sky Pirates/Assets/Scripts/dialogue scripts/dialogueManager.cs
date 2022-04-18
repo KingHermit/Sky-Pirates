@@ -7,6 +7,7 @@ public class dialogueManager : MonoBehaviour
 {
 
     private Queue<string> sentences;
+    public dialogueTrigger dialogueTrigger;
 
     public Text nameText;
     public Text dialogueText;
@@ -42,11 +43,23 @@ public class dialogueManager : MonoBehaviour
         }
 
         string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sentence));
     }
 
-    void EndDialogue()
+    IEnumerator TypeSentence (string sentence)
+    {
+        dialogueText.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
+    }
+
+    public void EndDialogue()
     {
         Debug.Log("end of convo");
+        dialogueTrigger.inConvo = false;
     }
 }
