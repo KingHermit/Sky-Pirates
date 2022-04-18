@@ -10,6 +10,8 @@ public class WaveManager4 : MonoBehaviour
 
     public BlimpController blimpController;
 
+    public bool dstryWall = false;
+
     // Shop spawn var
     public Transform shop;
     public Transform shopSpawn;
@@ -129,7 +131,7 @@ public class WaveManager4 : MonoBehaviour
 
     }
 
-    bool EnemyIsAlive()
+    public bool EnemyIsAlive()
     {
         searchCountdown -= Time.deltaTime;
         if (searchCountdown <= 0f)
@@ -163,7 +165,7 @@ public class WaveManager4 : MonoBehaviour
 
         if (currentWaveNumber % 1 == 0)
         {
-            BlimpPilotsReady();
+            BossWaveReady();
         }
         else if (currentWaveNumber % 3 == 0)
         {
@@ -180,7 +182,7 @@ public class WaveManager4 : MonoBehaviour
 
             state = SpawnState.WAITING;
         }
-        else if (currentWaveNumber % 4  == 0)
+        else if (currentWaveNumber % 4 == 0)
         {
             Debug.Log("Incoming Wave " + currentWaveNumber + ": Zig-Zag");
 
@@ -229,33 +231,18 @@ public class WaveManager4 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator PilotsReady()
+    IEnumerator DestroyWall()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            SpawnFlyingV(enemyVF);
-            yield return new WaitForSeconds(11f);
-        }
-
-        state = SpawnState.WAITING;
+        dstryWall = true;
+        yield return new WaitForSeconds(2f);
+        dstryWall = false;
     }
 
-    void BlimpPilotsReady()
+    void BossWaveReady()
     {
         Debug.Log("Boss Wave!");
-
-        //Instantiate(enemyBoss, bbSpawnPoint.position, transform.rotation);
-        for (int i = 0; i < 1; i++)
-        {
-            SpawnBlimp(enemyBoss);
-        }
-
-        // Spawn
-        if (blimpController.isVulnerable == false)
-        {
-            Debug.Log("ready");
-            StartCoroutine(PilotsReady());
-        }
+        
+        SpawnBlimp(enemyBoss);
 
         state = SpawnState.WAITING;
     }

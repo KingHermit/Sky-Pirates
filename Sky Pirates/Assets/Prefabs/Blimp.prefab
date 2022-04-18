@@ -153,6 +153,13 @@ MonoBehaviour:
   isVulnerable: 0
   noblesReady: 0
   isDead: 0
+  searchingForEnemies: 0
   explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
   vulnerablity: {fileID: 4245945802342014469}
   player: {fileID: 0}
+  enemyVF: {fileID: 4008997607145873996, guid: 37249bef0a0731d449c09ae2064d5f14, type: 3}
+  topY3: {fileID: 0}
+  tMidY2: {fileID: 0}
+  headY0: {fileID: 0}
+  bMidY2: {fileID: 0}
+  bottomY3: {fileID: 0}

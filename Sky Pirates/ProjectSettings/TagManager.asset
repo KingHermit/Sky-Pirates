@@ -15,11 +15,18 @@ TagManager:
   - enemyZZ
   - enemySine
   - BossBlimp
+  - topY3
+  - tMidY2
+  - headY0
+  - bMidY2
+  - bottomY3
+  - InvisWall
+  - BulletBarrier
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Invis. Barrier
   - Water
   - UI
   - Enemy Bullets

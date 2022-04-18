@@ -61,8 +61,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // MOVEMENT CODE
+        Physics2D.IgnoreLayerCollision(7, 3);
 
+        // MOVEMENT CODE
         Vector2 velocity = myRb.velocity;
 
         velocity.x = Input.GetAxisRaw("Horizontal") * playerSpeed;

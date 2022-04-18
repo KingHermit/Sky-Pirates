@@ -20,10 +20,21 @@ public class BlimpController : MonoBehaviour
     public bool isVulnerable = false;
     public bool noblesReady = false;
     public bool isDead = false;
+    public bool searchingForEnemies = false;
 
     public Sprite explosion;
     public SpriteRenderer vulnerablity;
     public GameObject player;
+
+    // Nobles
+    public Transform enemyVF;
+
+    // Nobles SP
+    public Transform topY3;
+    public Transform tMidY2;
+    public Transform headY0;
+    public Transform bMidY2;
+    public Transform bottomY3;
 
     Rigidbody2D rB;
 
@@ -33,11 +44,19 @@ public class BlimpController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         waves = GameObject.FindGameObjectWithTag("WaveM").GetComponent<WaveManager4>();
+
+        topY3 = GameObject.FindGameObjectWithTag("topY3").transform;
+        tMidY2 = GameObject.FindGameObjectWithTag("tMidY2").transform;
+        headY0 = GameObject.FindGameObjectWithTag("headY0").transform;
+        bMidY2 = GameObject.FindGameObjectWithTag("bMidY2").transform;
+        bottomY3 = GameObject.FindGameObjectWithTag("bottomY3").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Physics2D.IgnoreLayerCollision(11, 3);
+
         // Moving to Position
         if (inPosition == false)
         {
@@ -52,27 +71,24 @@ public class BlimpController : MonoBehaviour
         if (!isVulnerable && inPosition)
         {
             vulnerablity.color = new Color(.6f, .6f, .6f, 1f);
-            Physics2D.IgnoreLayerCollision(6, 11, true);
-            Physics2D.IgnoreLayerCollision(7, 11, true);
-            Physics2D.IgnoreLayerCollision(8, 11, true);
-            Physics2D.IgnoreLayerCollision(9, 11, true);
-
-            noblesReady = true;
         }
         else if (isVulnerable && inPosition)
         {
             vulnerablity.color = new Color(1f, 1f, 1f, 1f);
-            Physics2D.IgnoreLayerCollision(6, 11, true);
-            Physics2D.IgnoreLayerCollision(7, 11, false);
-            Physics2D.IgnoreLayerCollision(8, 11, true);
-            Physics2D.IgnoreLayerCollision(9, 11, false);
-
-            noblesReady = false;
         }
 
-        if (GameObject.FindGameObjectWithTag("enemyVF") == null)
+        if (searchingForEnemies == false /* bool switched on after all enemies gone*/)
         {
-            StartCoroutine(EnemyVulnerable());
+            if (GameObject.FindGameObjectWithTag("enemyVF") == null)
+            {
+                // Problem with isVulnerable and noblesReady
+                StartCoroutine(EnemyVulnerable());
+                searchingForEnemies = true;
+                StartCoroutine(WaitMore());
+            }
+
+            /* switch bool off after above statement runs */
+            //StartCoroutine(WaitMore());
         }
 
         // DIE CODE
@@ -82,20 +98,18 @@ public class BlimpController : MonoBehaviour
             StartCoroutine("Dead");
         }
 
-        if(inPosition == false)
+        if (inPosition == false)
         {
             if (transform.position.x <= 14)
             {
                 moveSpeed = 0;
                 inPosition = true;
-                isVulnerable = false;
 
                 rB.constraints = RigidbodyConstraints2D.FreezePositionX;
             }
         }
         else
         {
-            Debug.Log("Not repeating position");
             return;
         }
 
@@ -113,9 +127,65 @@ public class BlimpController : MonoBehaviour
 
     IEnumerator EnemyVulnerable()
     {
+        //isVulnerable = true;
+        vulnerablity.color = new Color(1f, 1f, 1f, 1f);
+        Physics2D.IgnoreLayerCollision(6, 11, true);
+        Physics2D.IgnoreLayerCollision(7, 11, false);
+        Physics2D.IgnoreLayerCollision(8, 11, true);
+        Physics2D.IgnoreLayerCollision(9, 11, false);
+
         isVulnerable = true;
+        noblesReady = false;
+
         yield return new WaitForSeconds(5f);
+
+        //isVulnerable = false;
+
+        vulnerablity.color = new Color(.6f, .6f, .6f, 1f);
+        Physics2D.IgnoreLayerCollision(6, 11, true);
+        Physics2D.IgnoreLayerCollision(7, 11, true);
+        Physics2D.IgnoreLayerCollision(8, 11, true);
+        Physics2D.IgnoreLayerCollision(9, 11, true);
+
         isVulnerable = false;
+        noblesReady = true;
+
+        BlimpPilotsReady();
+    }
+
+    IEnumerator WaitMore()
+    {
+        yield return new WaitForSeconds(7f);
+        searchingForEnemies = false;
+    }
+
+    IEnumerator PilotsReady()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            SpawnFlyingV(enemyVF);
+            yield return new WaitForSeconds(8f);
+        }
+
+        Debug.Log("Repeating");
+    }
+
+    void BlimpPilotsReady()
+    {
+        // Spawn
+        if (isVulnerable == false || noblesReady == true)
+        {
+            StartCoroutine(PilotsReady());
+        }
+    }
+
+    void SpawnFlyingV(Transform _enemy)
+    {
+        Instantiate(_enemy, topY3.position, transform.rotation);
+        Instantiate(_enemy, tMidY2.position, transform.rotation);
+        Instantiate(_enemy, headY0.position, transform.rotation);
+        Instantiate(_enemy, bMidY2.position, transform.rotation);
+        Instantiate(_enemy, bottomY3.position, transform.rotation);
     }
 
     /*

@@ -29,6 +29,8 @@ public class ShopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics2D.IgnoreLayerCollision(10, 3);
+
         if (isClosed)
         {
             anim.SetBool("ShopClosed", true);

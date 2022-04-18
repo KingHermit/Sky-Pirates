@@ -19,6 +19,7 @@ public class NobleController : MonoBehaviour
 
     public GameObject ball;
     public GameObject player;
+    public GameObject InvisWall;
 
     public LayerMask mask;
 
@@ -29,6 +30,7 @@ public class NobleController : MonoBehaviour
     {
         rB = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        InvisWall = GameObject.FindGameObjectWithTag("InvisWall");
     }
 
     // Update is called once per frame
@@ -73,6 +75,8 @@ public class NobleController : MonoBehaviour
 
         Physics2D.IgnoreLayerCollision(6, 8);
         Physics2D.IgnoreLayerCollision(6, 11);
+        Physics2D.IgnoreLayerCollision(8, 3);
+        Physics2D.IgnoreLayerCollision(6, 3);
     }
 
 
