@@ -7005,7 +7005,7 @@ GameObject:
   - component: {fileID: 1140511609}
   m_Layer: 0
   m_Name: Mid V (Top)
-  m_TagString: Untagged
+  m_TagString: tMidY2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7120,7 +7120,7 @@ GameObject:
   - component: {fileID: 1401335566}
   m_Layer: 0
   m_Name: Tail End V (Top)
-  m_TagString: Untagged
+  m_TagString: topY3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7605,7 +7605,7 @@ GameObject:
   - component: {fileID: 1541335798}
   m_Layer: 0
   m_Name: Tail End V (Bottom)
-  m_TagString: Untagged
+  m_TagString: bottomY3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8009,7 +8009,7 @@ GameObject:
   - component: {fileID: 1868503224}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: headY0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8093,7 +8093,7 @@ GameObject:
   - component: {fileID: 1926010666}
   m_Layer: 0
   m_Name: Mid V (Bottom)
-  m_TagString: Untagged
+  m_TagString: bMidY2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
