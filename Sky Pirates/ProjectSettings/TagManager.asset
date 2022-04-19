@@ -22,6 +22,7 @@ TagManager:
   - bottomY3
   - InvisWall
   - BulletBarrier
+  - textbox
   layers:
   - Default
   - TransparentFX
