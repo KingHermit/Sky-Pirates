@@ -61,9 +61,13 @@ public class WaveManager4 : MonoBehaviour
 
     public SpawnState state = SpawnState.COUNTING;
 
+    public dialogueTrigger dialogue;
+
     // Start is called before the first frame update
     void Start()
     {
+        dialogue.inConvo = true;
+
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No spawn points referenced.");
@@ -88,7 +92,7 @@ public class WaveManager4 : MonoBehaviour
             }
         }
 
-        if (waveCountdown <= 0 && !ShopIsHere())
+        if (waveCountdown <= 0 && !ShopIsHere() && !dialogue.inConvo)
         {
             if (state != SpawnState.SPAWNING)
             {
@@ -163,7 +167,7 @@ public class WaveManager4 : MonoBehaviour
     {
         currentWaveNumber++;
 
-        if (currentWaveNumber % 1 == 0)
+        if (currentWaveNumber % 5 == 0)
         {
             BossWaveReady();
         }

@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public Sprite dead;
     public Sprite explosion;
 
+    // Scripts
     public ParticleSystem smokin;
     public ShopController shop;
 

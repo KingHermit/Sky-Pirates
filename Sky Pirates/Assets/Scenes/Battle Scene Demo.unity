@@ -6993,6 +6993,7 @@ MonoBehaviour:
   currentWaveNumber: 0
   timeBetweenWaves: 5
   state: 2
+  dialogue: {fileID: 767576984}
 --- !u!1 &1140511607
 GameObject:
   m_ObjectHideFlags: 0
