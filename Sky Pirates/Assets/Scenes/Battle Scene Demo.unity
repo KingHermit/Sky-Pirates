@@ -244,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159.11725, y: -129.24828}
+  m_AnchoredPosition: {x: -174, y: -129.24828}
   m_SizeDelta: {x: 52.8783, y: 1.6013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45782155
@@ -6155,7 +6155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 314, y: 152.7}
+  m_AnchoredPosition: {x: 321, y: 152.7}
   m_SizeDelta: {x: 200, y: 43.395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &763509419
@@ -6257,19 +6257,22 @@ MonoBehaviour:
     - Bandanit
     - Captain Stratus
     - Captain Stratus
+    - Captain Stratus
     - Bandanit
     talksprites:
+    - {fileID: 21300000, guid: d45321a6dba5416439d7e626a28b082e, type: 3}
+    - {fileID: 21300000, guid: d45321a6dba5416439d7e626a28b082e, type: 3}
+    - {fileID: 21300000, guid: 2daff60df69654b41a26cfe9100de02e, type: 3}
+    - {fileID: 21300000, guid: d45321a6dba5416439d7e626a28b082e, type: 3}
     - {fileID: 21300000, guid: ff99560dd0c99524c8a8e1e53040e048, type: 3}
     - {fileID: 21300000, guid: ff99560dd0c99524c8a8e1e53040e048, type: 3}
-    - {fileID: 21300000, guid: 8c38b2cec9f53ae438795ea0d3a69a57, type: 3}
-    - {fileID: 21300000, guid: ff99560dd0c99524c8a8e1e53040e048, type: 3}
-    - {fileID: 21300000, guid: ff99560dd0c99524c8a8e1e53040e048, type: 3}
-    - {fileID: 21300000, guid: 34ee551d28f0cb84188f32768d875391, type: 3}
+    - {fileID: 21300000, guid: 7185141c04724e0469dbcde67dbb9cbc, type: 3}
     sentences:
     - Alright, this is the real deal!
     - We're here to take down Mr. Grander! Remember your training!
     - wait we had training
-    - I- Did you SERIOUSLY forget...
+    - I-
+    - Did you SERIOUSLY forget...
     - EVERYTHING I TAUGHT YOU?!
     - ...
 --- !u!4 &767576985
@@ -6322,7 +6325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -339, y: -126.8}
+  m_AnchoredPosition: {x: -353.88275, y: -126.8}
   m_SizeDelta: {x: 59.591, y: 51.5092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771195244
@@ -7112,9 +7115,9 @@ MonoBehaviour:
     - Bandanit
     - Stratus
     talksprites:
-    - {fileID: 0}
-    - {fileID: 21300000, guid: 8c38b2cec9f53ae438795ea0d3a69a57, type: 3}
-    - {fileID: 21300000, guid: ff99560dd0c99524c8a8e1e53040e048, type: 3}
+    - {fileID: 21300000, guid: 3265d85f46614af4b956686f581e90a7, type: 3}
+    - {fileID: 21300000, guid: 7185141c04724e0469dbcde67dbb9cbc, type: 3}
+    - {fileID: 21300000, guid: d45321a6dba5416439d7e626a28b082e, type: 3}
     sentences:
     - hey hey HEY WHAT ARE YOU DOING
     - mmmm powerup
