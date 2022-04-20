@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public PlayerController player;
-    public dialogueTrigger dialogue;
+    public dialogueManager dm;
     public GameObject textBox;
     // public WaveManager3 waves;
     public WaveManager4 waves;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogue.TriggerDialogue();
+        dm.stratusInteraction1();
     }
 
     // Update is called once per frame
@@ -30,9 +30,12 @@ public class GameManager : MonoBehaviour
             waveText.text = "Wave " + waves.currentWaveNumber;
         }
 
-        if (!dialogue.inConvo)
+        if (!dm.inConvo)
         {
             textBox.SetActive(false);
+        } else
+        {
+            textBox.SetActive(true);
         }
     }
 

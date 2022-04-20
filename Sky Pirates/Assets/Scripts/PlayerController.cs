@@ -48,12 +48,14 @@ public class PlayerController : MonoBehaviour
 
     // Scripts
     public ParticleSystem smokin;
-    public ShopController shop;
+    // public ShopController shop;
+    public dialogueManager dialogue;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        dialogue = FindObjectOfType<dialogueManager>();
         smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -74,8 +76,7 @@ public class PlayerController : MonoBehaviour
 
 
         // SHOOT CODE
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !dialogue.inConvo)
         {
             GameObject b = Instantiate(bullet, transform);
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), b.GetComponent<BoxCollider2D>());
@@ -83,9 +84,9 @@ public class PlayerController : MonoBehaviour
             Destroy(b, bulletLifespan);
         }
 
-        // ABILITY CODE
+        // ABILITY CODEs
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) & ballin)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && ballin && !dialogue.inConvo)
         {
             GameObject c = Instantiate(cannonBall, transform);
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), c.GetComponent<CircleCollider2D>());
@@ -210,6 +211,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
+            dialogue.cocoInteraction1();
             // Debug.Log("random powerup");
         }
     }

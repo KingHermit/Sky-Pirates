@@ -9,11 +9,15 @@ public class dialogueManager : MonoBehaviour
     private Queue<string> sentences;
     private Queue<string> names;
     private Queue<Sprite> tSprites;
-    public dialogueTrigger dialogueTrigger;
 
     public Text nameText;
     public Text dialogueText;
     public Image spriteImage;
+
+    public GameObject Stratus;
+    public GameObject Coco;
+
+    public bool inConvo = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +36,8 @@ public class dialogueManager : MonoBehaviour
     public void StartDialogue (dialogue dialogue)
     {
         // Debug.Log("Starting conversation with" + dialogue.name);
+
+        inConvo = true;
 
         // clear existing sentences
         sentences.Clear();
@@ -62,7 +68,7 @@ public class dialogueManager : MonoBehaviour
         // if no more sentences then end convo
         if (sentences.Count == 0)
         {
-            EndDialogue();
+            inConvo = false;
             return;
         }
 
@@ -86,9 +92,13 @@ public class dialogueManager : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    public void stratusInteraction1()
     {
-        // Debug.Log("end of convo");
-        dialogueTrigger.inConvo = false;
+        StartDialogue(Stratus.GetComponent<dialogueTrigger>().dialogue);
+    }
+
+    public void cocoInteraction1()
+    {
+        StartDialogue(Coco.GetComponent<dialogueTrigger>().dialogue);
     }
 }

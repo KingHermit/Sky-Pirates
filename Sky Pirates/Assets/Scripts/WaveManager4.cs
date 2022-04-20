@@ -61,7 +61,7 @@ public class WaveManager4 : MonoBehaviour
 
     public SpawnState state = SpawnState.COUNTING;
 
-    public dialogueTrigger dialogue;
+    public dialogueManager dialogue;
 
     // Start is called before the first frame update
     void Start()
