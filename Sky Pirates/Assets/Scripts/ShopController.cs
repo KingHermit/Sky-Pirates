@@ -12,6 +12,8 @@ public class ShopController : MonoBehaviour
     public float leftBound = -12;
    
 
+    /* Power-ups: Cannonball Cooldown Negation, Restore Health, Shield */
+
     // Is it open or closed
     // public bool isOpen = false;
     public bool isClosed = false;

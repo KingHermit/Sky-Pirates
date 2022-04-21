@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1497618841
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 2908dba5e4c78d7469edb68e0af2d623, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,18 +101,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcaa4d5c6c207ce438f2a676dbf3e032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballSpeed: 5
+  ballSpeed: 7
   ballLifespan: 5
   rateOfFire: 0.5
   rofTimer: 0
   bulletCount: 0
   health: 25
   explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
-  canShoot: 0
+  canShoot: 1
   readyToShoot: 0
   isDead: 0
   ball: {fileID: 3578376709943573680, guid: 48e512b06cb1f1345872b459dd6abb37, type: 3}
   player: {fileID: 0}
+  InvisWall: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -165,9 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5098fa075ccb3a84bb797f38a8756cd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftBound: -75
+  leftBound: -12
   inShootZone: 0
-  myRB: {fileID: 820657825537551670}
+  myRB: {fileID: 0}
 --- !u!114 &280028374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,6 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a9f76c89f8b124fbb097841a4b8979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  frequency: 2
+  moveSpeed: 1.5
+  frequency: 0.5
   magnitude: 3

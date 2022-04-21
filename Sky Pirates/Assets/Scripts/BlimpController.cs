@@ -188,20 +188,6 @@ public class BlimpController : MonoBehaviour
         Instantiate(_enemy, bottomY3.position, transform.rotation);
     }
 
-    /*
-    IEnumerator FadeIn(Color start, Color end, float duration)
-    {
-        for (float t = 0f; t < duration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / duration;
-            //right here, you can now use normalizedTime as the third parameter in any Lerp from start to end
-            vulnerablity.color = Color.Lerp(start, end, normalizedTime);
-            yield return null;
-        }
-        vulnerablity.color = end; //without this, the value will end at something like 0.9992367
-    }
-    */
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "pBullet")

@@ -14,6 +14,11 @@ public class HealthBar : MonoBehaviour
         healthBarImage.fillAmount -= damage;
     }
 
+    public void UpdateHealthBarToFull()
+    {
+        healthBarImage.fillAmount = 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1054865454509233482}
   - component: {fileID: 1054865454509233483}
   - component: {fileID: 1054865454509233484}
+  - component: {fileID: -8435410691791486441}
   m_Layer: 7
   m_Name: cannon ball
   m_TagString: pCannon
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1497618841
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5b098c508b5a5e84282a5f37d5087197, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -123,3 +124,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-8435410691791486441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054865454509233485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1dec8bd4413dd4d89fd689fe65b095, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

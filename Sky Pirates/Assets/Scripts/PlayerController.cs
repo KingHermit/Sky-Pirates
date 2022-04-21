@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     // game objects
     public Rigidbody2D myRb;
+    public GameObject playerShield;
     public GameObject bullet;
     public GameObject cannonBall;
     public Image healthIcon;
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     // bools
     public bool ballin = true;
     public bool isDead = false;
+    public bool shielded = false;
 
     // sprites
     public Animator anim;
@@ -59,6 +61,8 @@ public class PlayerController : MonoBehaviour
         smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        playerShield.SetActive(false);
     }
 
     // Update is called once per frame
@@ -152,8 +156,69 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // Random Power Up commands
+    void RanPUpWOShield()
+    {
+        int pUpGen = Random.Range(1, 2);
 
+        if (pUpGen == 1)
+        {
+            Debug.Log("Cannonball Cooldown Negated!");
+            StartCoroutine(EndlessBall());
 
+        }
+        else if (pUpGen == 2)
+        {
+            Debug.Log("Health Restored!");
+            health = 100;
+        }
+    }
+
+    void GetRandomPowerUp()
+    {
+        int pUpGen = Random.Range(1, 3);
+
+        if(pUpGen == 1)
+        {
+            Debug.Log("Cannonball Cooldown Negated!");
+            StartCoroutine(EndlessBall());
+
+        }
+        else if(pUpGen == 2)
+        {
+            Debug.Log("Shield Received!");
+            SummonShield();
+        }
+        else if (pUpGen == 3)
+        {
+            Debug.Log("Health Restored!");
+            health = 100;
+            healthBarScript.UpdateHealthBarToFull();
+        }
+    }
+
+    void SummonShield()
+    {
+        if(GameObject.FindGameObjectWithTag("pShield") == null)
+        {
+            playerShield.SetActive(true);
+
+            shielded = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    IEnumerator EndlessBall()
+    {
+        ballCooldown = 0;
+
+        yield return new WaitForSeconds(15f);
+
+        ballCooldown = 5;
+    }
 
     // timers
 
@@ -186,25 +251,44 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "eBullet")
+        if (shielded == true)
         {
-            StartCoroutine("ow");
-            // Debug.Log("ouchie");
-            health = health - 5;
-            healthBarScript.UpdateHealthBar(0.05f);
-            Destroy(collision.gameObject);
-        }
+            // Shield Not With Player & Not Destroying itself. (Own Script?)
+            if (collision.gameObject.tag == "eBullet")
+            {
+                playerShield.SetActive(false);
+                shielded = false;
+                Destroy(collision.gameObject);
+            }
 
-        if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            {
+                playerShield.SetActive(false);
+                shielded = false;
+                Destroy(collision.gameObject);
+            }
+        }
+        else
         {
-            collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
-            StartCoroutine("ow");
-            health = health - 20;
-            collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
-            healthBarScript.UpdateHealthBar(.20f);
-            Destroy(collision.gameObject, 0.5f);
-        }
+            if (collision.gameObject.tag == "eBullet")
+            {
+                StartCoroutine("ow");
+                // Debug.Log("ouchie");
+                health = health - 5;
+                healthBarScript.UpdateHealthBar(0.05f);
+                Destroy(collision.gameObject);
+            }
 
+            if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            {
+                collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                StartCoroutine("ow");
+                health = health - 20;
+                collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+                healthBarScript.UpdateHealthBar(.20f);
+                Destroy(collision.gameObject, 0.5f);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -213,6 +297,14 @@ public class PlayerController : MonoBehaviour
         {
             dialogue.cocoInteraction1();
             // Debug.Log("random powerup");
+            if(shielded == true)
+            {
+                RanPUpWOShield();
+            }
+            else
+            {
+                GetRandomPowerUp();
+            }
         }
     }
 

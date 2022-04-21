@@ -23,6 +23,7 @@ TagManager:
   - InvisWall
   - BulletBarrier
   - textbox
+  - pShield
   layers:
   - Default
   - TransparentFX
@@ -59,4 +60,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Blimp
+    uniqueID: 2807953545
+    locked: 0
+  - name: Planes and Bullets
+    uniqueID: 2797348455
     locked: 0
