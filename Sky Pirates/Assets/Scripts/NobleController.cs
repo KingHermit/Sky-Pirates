@@ -21,6 +21,8 @@ public class NobleController : MonoBehaviour
     public GameObject player;
     public GameObject InvisWall;
 
+    private AudioSource speaker;
+
     public LayerMask mask;
 
     Rigidbody2D rB;
@@ -28,6 +30,7 @@ public class NobleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speaker = GetComponent<AudioSource>();
         rB = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         InvisWall = GameObject.FindGameObjectWithTag("InvisWall");
@@ -93,6 +96,7 @@ public class NobleController : MonoBehaviour
     {
         // Debug.Log("explosion")
         isDead = true;
+        speaker.Play();
         gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
         yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
