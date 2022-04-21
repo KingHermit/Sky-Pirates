@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour
     // public ShopController shop;
     public dialogueManager dialogue;
 
+    // SFX
+    public AudioSource speaker;
+    public AudioClip[] sounds;
+    // private AudioClip audioClip;
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +86,9 @@ public class PlayerController : MonoBehaviour
         // SHOOT CODE
         if (Input.GetKeyDown(KeyCode.Mouse0) && !dialogue.inConvo)
         {
+            // audioClip = sounds[0];
+            speaker.clip = sounds[0];
+            speaker.Play();
             GameObject b = Instantiate(bullet, transform);
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), b.GetComponent<BoxCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
@@ -234,6 +241,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator ow ()
     {
         // change the player color if it takes damage
+        speaker.clip = sounds[1];
+        speaker.Play();
         GetComponent<SpriteRenderer>().color = new Vector4(0.8962264f, 0.3255162f, 0.3255162f, 1f);
         yield return new WaitForSeconds(1);
         GetComponent<SpriteRenderer>().color = new Vector4(1f, 1f, 1f, 1f);
@@ -295,6 +304,9 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
+            speaker.clip = sounds[2];
+            speaker.Play();
+
             dialogue.cocoInteraction1();
             // Debug.Log("random powerup");
             if(shielded == true)

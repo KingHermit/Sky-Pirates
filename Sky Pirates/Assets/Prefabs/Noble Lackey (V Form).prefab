@@ -168,9 +168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftBound: -12
   inShootZone: 0
-<<<<<<< Updated upstream
-  myRB: {fileID: 0}
-=======
   myRB: {fileID: 4008997607145873984}
 --- !u!82 &-7421725064706777327
 AudioSource:
@@ -268,4 +265,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
->>>>>>> Stashed changes
