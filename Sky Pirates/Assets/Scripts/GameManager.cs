@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
         {
             textBox.SetActive(true);
         }
+
+        if (player.isDead)
+        {
+            SceneManager.LoadScene(4);
+        }
     }
 
     public void mainMenu()

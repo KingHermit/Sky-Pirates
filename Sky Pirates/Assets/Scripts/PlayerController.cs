@@ -277,12 +277,11 @@ public class PlayerController : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        else
+        else if (shielded != true)
         {
             if (collision.gameObject.tag == "eBullet")
             {
                 StartCoroutine("ow");
-                // Debug.Log("ouchie");
                 health = health - 5;
                 healthBarScript.UpdateHealthBar(0.05f);
                 Destroy(collision.gameObject);
