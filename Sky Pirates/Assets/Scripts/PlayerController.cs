@@ -58,6 +58,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] sounds;
     // private AudioClip audioClip;
 
+
+    public int shopCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -306,10 +309,19 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
+            shopCount++;
             speaker.clip = sounds[2];
             speaker.Play();
+            
+            if (shopCount == 1)
+            {
+                dialogue.cocoInteraction1();
+            } else if (shopCount == 2)
+            {
+                dialogue.cocoInteraction2();
+            }
 
-            dialogue.cocoInteraction1();
+
             // Debug.Log("random powerup");
             if(shielded == true)
             {

@@ -244,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: -129.24828}
+  m_AnchoredPosition: {x: -174, y: -181.44827}
   m_SizeDelta: {x: 52.8783, y: 1.6013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45782155
@@ -5519,7 +5519,7 @@ Transform:
   - {fileID: 1622695360}
   - {fileID: 32021735}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &496792384
 GameObject:
@@ -5557,7 +5557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -299.69, y: 139.28}
+  m_AnchoredPosition: {x: -297, y: 186.28}
   m_SizeDelta: {x: 200.6154, y: 69.1111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496792386
@@ -5768,6 +5768,41 @@ Transform:
   - {fileID: 1042976913}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &617224593
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 617224594}
+  m_Layer: 0
+  m_Name: dialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &617224594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617224593}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 832.68243, y: 434.20953, z: -5.498348}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 767576985}
+  - {fileID: 1182936551}
+  - {fileID: 1730712632}
+  - {fileID: 1141049577}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &628408429
 GameObject:
@@ -6398,7 +6433,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 321, y: 152.7}
+  m_AnchoredPosition: {x: 321, y: 199.7}
   m_SizeDelta: {x: 200, y: 43.395}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &763509419
@@ -6525,13 +6560,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767576983}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 467.8926, y: 214.50453, z: -3.6259718}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -364.78983, y: -219.705, z: 1.8723764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 617224594}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771195242
 GameObject:
@@ -6568,7 +6603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353.88275, y: -126.8}
+  m_AnchoredPosition: {x: -353.88275, y: -179}
   m_SizeDelta: {x: 59.591, y: 51.5092}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771195244
@@ -6647,7 +6682,7 @@ Transform:
   - {fileID: 1734698783}
   - {fileID: 1749066118}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968737475
 GameObject:
@@ -6845,6 +6880,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2fcf6c2d87728d143a2c46df66850b9a, type: 3}
   - {fileID: 8300000, guid: cc4e0e7ff12de8b4a8dbb72d57477b35, type: 3}
   - {fileID: 8300000, guid: 05f13ffd761a0874eac5c9a6e80de471, type: 3}
+  shopCount: 0
 --- !u!212 &975006935
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6912,7 +6948,7 @@ Transform:
   - {fileID: 263995908}
   - {fileID: 2072736685}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &975006937
 MonoBehaviour:
@@ -7561,6 +7597,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1141049576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141049577}
+  - component: {fileID: 1141049578}
+  m_Layer: 0
+  m_Name: Coco 2 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141049577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141049576}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -775.49097, y: -427.96133, z: 6.415701}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 617224594}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1141049578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141049576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820d1deaa78aaaa45bcdd7c068c57996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Coco
+    talksprites:
+    - {fileID: 21300000, guid: 3265d85f46614af4b956686f581e90a7, type: 3}
+    sentences:
+    - i'm gonna go bankrupt oh my god
 --- !u!1 &1182936549
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,13 +7697,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182936549}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.191437, y: 6.248207, z: 0.91735244}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -775.49097, y: -427.96133, z: 6.415701}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 617224594}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1211434695
 GameObject:
@@ -7767,6 +7854,7 @@ MonoBehaviour:
   spriteImage: {fileID: 716939546}
   Stratus: {fileID: 767576983}
   Coco: {fileID: 1182936549}
+  Coco2: {fileID: 1730712631}
   inConvo: 0
 --- !u!4 &1422496330
 Transform:
@@ -8245,7 +8333,7 @@ RectTransform:
   m_GameObject: {fileID: 1616657612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.13, y: 1.13, z: 1.13}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 716939545}
@@ -8255,7 +8343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 7}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1622695359
@@ -8447,6 +8535,60 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1730712631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1730712632}
+  - component: {fileID: 1730712633}
+  m_Layer: 0
+  m_Name: Coco 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1730712632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730712631}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -775.49097, y: -427.96133, z: 6.415701}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 617224594}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1730712633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730712631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820d1deaa78aaaa45bcdd7c068c57996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    names:
+    - Coco
+    - Bandanit
+    talksprites:
+    - {fileID: 21300000, guid: 3265d85f46614af4b956686f581e90a7, type: 3}
+    - {fileID: 21300000, guid: 2daff60df69654b41a26cfe9100de02e, type: 3}
+    sentences:
+    - STOP STEALING MY POWERUPS
+    - i need em sorry
 --- !u!1 &1734698782
 GameObject:
   m_ObjectHideFlags: 0
@@ -8995,7 +9137,7 @@ Transform:
   - {fileID: 1926010665}
   - {fileID: 1541335797}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058979724
 GameObject:
