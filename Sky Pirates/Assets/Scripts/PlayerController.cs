@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
             {
                 playerShield.SetActive(false);
                 shielded = false;
@@ -285,9 +285,10 @@ public class PlayerController : MonoBehaviour
                 health = health - 5;
                 healthBarScript.UpdateHealthBar(0.05f);
                 Destroy(collision.gameObject);
+                Debug.Log("I've been hit by bullets!");
             }
 
-            if (collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
             {
                 collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
                 StartCoroutine("ow");
@@ -295,6 +296,8 @@ public class PlayerController : MonoBehaviour
                 collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
                 healthBarScript.UpdateHealthBar(.20f);
                 Destroy(collision.gameObject, 0.5f);
+
+                Debug.Log("I've been hit by nobles!");
             }
         }
     }

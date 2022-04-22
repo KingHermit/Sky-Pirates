@@ -36,15 +36,16 @@ public class ShopController : MonoBehaviour
         if (isClosed)
         {
             anim.SetBool("ShopClosed", true);
-            Physics2D.IgnoreLayerCollision(9, 10);
-            Physics2D.IgnoreLayerCollision(7, 10);
+            Physics2D.IgnoreLayerCollision(9, 10, true);
+            Physics2D.IgnoreLayerCollision(7, 10, true);
             moveSpeed = 3;
             Debug.Log("Closed");
         }
         else if (!isClosed)
         {
             anim.SetBool("ShopClosed", false);
-            Physics2D.IgnoreLayerCollision(7, 10);
+            Physics2D.IgnoreLayerCollision(9, 10, false);
+            Physics2D.IgnoreLayerCollision(7, 10, true);
             moveSpeed = 2;
             Debug.Log("Open");
         }
@@ -57,27 +58,6 @@ public class ShopController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            moveSpeed = 0;
-            Debug.Log("Don't hit my store!");
-            // GetComponent<BoxCollider2D>().isTrigger = true;
-            // isClosed = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            moveSpeed = 3;
-        }
-    }
-    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -96,7 +76,6 @@ public class ShopController : MonoBehaviour
         {
             moveSpeed = 3;
             isClosed = true;
-            //CannonBallCooldown();
         }
     }
 }
