@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     // Scripts
     public ParticleSystem smokin;
+    public ParticleSystem healthRestore;
     // public ShopController shop;
     public dialogueManager dialogue;
 
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
     // private AudioClip audioClip;
 
 
-    public int shopCount = 0;
+    int shopCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -201,6 +202,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (pUpGen == 3)
         {
+            healthRestore.Play();
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
@@ -235,10 +237,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator cannonCooldown ()
     {
         ballin = false;
-        Debug.Log("Wait for it");
+        // Debug.Log("Wait for it");
         yield return new WaitForSeconds(ballCooldown);
         ballin = true;
-        Debug.Log("Done");
+        // Debug.Log("Done");
     }
 
     IEnumerator ow ()
@@ -255,7 +257,7 @@ public class PlayerController : MonoBehaviour
     {
         smokin.Play();
         yield return new WaitForSeconds(5);
-        Debug.Log("DIE");
+        // Debug.Log("DIE");
         Destroy(gameObject);
     }
 
@@ -288,7 +290,7 @@ public class PlayerController : MonoBehaviour
                 health = health - 5;
                 healthBarScript.UpdateHealthBar(0.05f);
                 Destroy(collision.gameObject);
-                Debug.Log("I've been hit by bullets!");
+                // Debug.Log("I've been hit by bullets!");
             }
 
             if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
@@ -300,7 +302,7 @@ public class PlayerController : MonoBehaviour
                 healthBarScript.UpdateHealthBar(.20f);
                 Destroy(collision.gameObject, 0.5f);
 
-                Debug.Log("I've been hit by nobles!");
+                // Debug.Log("I've been hit by nobles!");
             }
         }
     }
@@ -319,6 +321,9 @@ public class PlayerController : MonoBehaviour
             } else if (shopCount == 2)
             {
                 dialogue.cocoInteraction2();
+            } else if (shopCount == 3)
+            {
+                dialogue.cocoInteraction3();
             }
 
 

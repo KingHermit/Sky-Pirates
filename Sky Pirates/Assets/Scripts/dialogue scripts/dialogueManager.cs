@@ -17,6 +17,7 @@ public class dialogueManager : MonoBehaviour
     public GameObject Stratus;
     public GameObject Coco;
     public GameObject Coco2;
+    public GameObject Coco3;
 
     public bool inConvo = false;
 
@@ -106,5 +107,10 @@ public class dialogueManager : MonoBehaviour
     public void cocoInteraction2()
     {
         StartDialogue(Coco2.GetComponent<dialogueTrigger>().dialogue);
+    }
+
+    public void cocoInteraction3()
+    {
+        StartDialogue(Coco3.GetComponent<dialogueTrigger>().dialogue);
     }
 }
