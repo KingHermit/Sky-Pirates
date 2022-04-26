@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Physics2D.IgnoreLayerCollision(7, 3);
+        Physics2D.IgnoreLayerCollision(7, 12);
 
         // MOVEMENT CODE
         Vector2 velocity = myRb.velocity;
@@ -182,6 +183,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Health Restored!");
             health = 100;
+            healthBarScript.UpdateHealthBarToFull();
         }
     }
 
@@ -303,6 +305,15 @@ public class PlayerController : MonoBehaviour
                 Destroy(collision.gameObject, 0.5f);
 
                 // Debug.Log("I've been hit by nobles!");
+            }
+
+            if (collision.gameObject.tag == "airMine")
+            {
+                StartCoroutine("ow");
+                health = health - 20;
+                collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+                healthBarScript.UpdateHealthBar(.20f);
+                Destroy(collision.gameObject, 0.5f);
             }
         }
     }

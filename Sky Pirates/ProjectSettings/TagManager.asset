@@ -24,6 +24,7 @@ TagManager:
   - BulletBarrier
   - textbox
   - pShield
+  - airMine
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - Player
   - Shop
   - Boss
-  - 
+  - Air Mines
   - 
   - 
   - 

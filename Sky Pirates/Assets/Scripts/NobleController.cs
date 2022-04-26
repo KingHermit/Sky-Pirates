@@ -40,6 +40,13 @@ public class NobleController : MonoBehaviour
     void Update()
     {
         Physics2D.IgnoreLayerCollision(6, 7);
+        Physics2D.IgnoreLayerCollision(6, 6);
+        Physics2D.IgnoreLayerCollision(6, 8);
+        Physics2D.IgnoreLayerCollision(6, 3);
+        Physics2D.IgnoreLayerCollision(6, 11);
+        Physics2D.IgnoreLayerCollision(6, 12);
+        Physics2D.IgnoreLayerCollision(8, 3);
+        Physics2D.IgnoreLayerCollision(8, 12);
 
         if (canShoot & readyToShoot & bulletCount < 3)
         {
@@ -75,11 +82,6 @@ public class NobleController : MonoBehaviour
             player.GetComponentInParent<PlayerController>().score += 10;
             StartCoroutine("dead");
         }
-
-        Physics2D.IgnoreLayerCollision(6, 8);
-        Physics2D.IgnoreLayerCollision(6, 11);
-        Physics2D.IgnoreLayerCollision(8, 3);
-        Physics2D.IgnoreLayerCollision(6, 3);
     }
 
 

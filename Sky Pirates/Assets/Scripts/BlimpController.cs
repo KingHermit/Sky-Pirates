@@ -56,6 +56,7 @@ public class BlimpController : MonoBehaviour
     void Update()
     {
         Physics2D.IgnoreLayerCollision(11, 3);
+        Physics2D.IgnoreLayerCollision(11, 12);
 
         // Moving to Position
         if (inPosition == false)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
-    public WaveManager3 waveManager;
+    public WaveManager4 waveManager;
 
     public Animator anim;
 
@@ -24,7 +24,7 @@ public class ShopController : MonoBehaviour
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
-        waveManager = GameObject.FindGameObjectWithTag("WaveM").GetComponent<WaveManager3>();
+        waveManager = GameObject.FindGameObjectWithTag("WaveM").GetComponent<WaveManager4>();
         anim = GetComponent<Animator>();
     }
 

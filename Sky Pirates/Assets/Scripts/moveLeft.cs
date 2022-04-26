@@ -19,7 +19,15 @@ public class moveLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Physics2D.IgnoreLayerCollision(3, 12);
+
         if (gameObject.name == "placeholder bg")
+        {
+            moveSpeed = 1;
+        }
+
+        // Air Mines
+        if (gameObject.tag == "airMine")
         {
             moveSpeed = 1;
         }

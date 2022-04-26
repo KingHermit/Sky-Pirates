@@ -10,8 +10,6 @@ public class WaveManager4 : MonoBehaviour
 
     public BlimpController blimpController;
 
-    public bool dstryWall = false;
-
     // Shop spawn var
     public Transform shop;
     public Transform shopSpawn;
@@ -22,10 +20,17 @@ public class WaveManager4 : MonoBehaviour
     public Transform enemyVF;
     public Transform enemyZZ;
     public Transform enemyBoss;
+    public Transform airMines;
     public int count;
     public float rate;
 
-    //public int enemyWaveForm = 5;
+    // Day & Night Cycle
+    public GameObject background;
+    public GameObject background2;
+    public Color bgCycle;
+    public Color day;
+    public Color night;
+    public bool isNight = false;
 
     // Enemy Spawn
     public Transform[] spawnPoints;
@@ -51,6 +56,7 @@ public class WaveManager4 : MonoBehaviour
 
     // Wave number for UI
     public int currentWaveNumber = 0;
+    public int waveFormCount = 0;
 
     // Time before next wave
     public float timeBetweenWaves = 5f;
@@ -79,6 +85,8 @@ public class WaveManager4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        waveFormCount = currentWaveNumber;
+
         if (state == SpawnState.WAITING)
         {
             // Check if enemies are still alive
@@ -98,6 +106,8 @@ public class WaveManager4 : MonoBehaviour
             {
                 // Start spawning wave
                 StartCoroutine(SpawnWave());
+                Debug.Log("Air mine deploying!");
+                StartCoroutine(SpawnAirMines());
             }
         }
         else
@@ -114,6 +124,29 @@ public class WaveManager4 : MonoBehaviour
         waveCountdown = timeBetweenWaves;
 
         SpawnShop();
+
+        if (currentWaveNumber % 12 == 0)
+        {
+            StartCoroutine(TimeCycle(night, day, 5f));
+        }
+        else if (currentWaveNumber % 6 == 0)
+        {
+            StartCoroutine(TimeCycle(day, night, 5f));
+        }
+        else
+        {
+            return;
+        }
+
+        if (waveFormCount >= 6)
+        {
+            waveFormCount = 5;
+            return;
+        }
+        else
+        {
+            waveFormCount = currentWaveNumber;
+        }
 
         if (count >= 15)
         {
@@ -132,7 +165,6 @@ public class WaveManager4 : MonoBehaviour
         {
             rate = rate + 0.5f;
         }
-
     }
 
     public bool EnemyIsAlive()
@@ -141,7 +173,7 @@ public class WaveManager4 : MonoBehaviour
         if (searchCountdown <= 0f)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("BossBlimp") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
+            if (GameObject.FindGameObjectWithTag("airMine") == null && GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("BossBlimp") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
             {
                 return false;
             }
@@ -178,7 +210,7 @@ public class WaveManager4 : MonoBehaviour
             state = SpawnState.SPAWNING;
 
             // Spawn
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < waveFormCount; i++)
             {
                 SpawnFlyingV(enemyVF);
                 yield return new WaitForSeconds(10f);
@@ -193,7 +225,7 @@ public class WaveManager4 : MonoBehaviour
             state = SpawnState.SPAWNING;
 
             // Spawn
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < waveFormCount; i++)
             {
                 SpawnZigZag(enemyZZ);
                 yield return new WaitForSeconds(8f);
@@ -226,6 +258,7 @@ public class WaveManager4 : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 SpawnEnemy(enemy);
+
                 yield return new WaitForSeconds(10f / rate);
             }
 
@@ -234,12 +267,33 @@ public class WaveManager4 : MonoBehaviour
 
         yield break;
     }
-
-    IEnumerator DestroyWall()
+    
+    IEnumerator SpawnAirMines()
     {
-        dstryWall = true;
-        yield return new WaitForSeconds(2f);
-        dstryWall = false;
+        if (currentWaveNumber >= 6)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                SpawnMines(airMines);
+                Debug.Log("Mines Deployed");
+                yield return new WaitForSeconds(4f);
+            }
+        }
+    }
+
+    IEnumerator TimeCycle(Color start, Color end, float duration)
+    {
+        for (float t = 0f; t < duration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / duration;
+            //right here, you can now use normalizedTime as the third parameter in any Lerp from start to end
+            background.GetComponent<SpriteRenderer>().color = Color.Lerp(start, end, normalizedTime);
+            background2.GetComponent<SpriteRenderer>().color = Color.Lerp(start, end, normalizedTime);
+            yield return null;
+        }
+        bgCycle = end; //without this, the value will end at something like 0.9992367
+        background.GetComponent<SpriteRenderer>().color = bgCycle;
+        background2.GetComponent<SpriteRenderer>().color = bgCycle;
     }
 
     void BossWaveReady()
@@ -271,11 +325,14 @@ public class WaveManager4 : MonoBehaviour
         }
     }
 
+    void SpawnMines(Transform _mines)
+    {
+        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(_mines, _sp.position, transform.rotation);
+    }
+
     void SpawnEnemy(Transform _enemy)
     {
-        // Spawn enemy
-        //Debug.Log("Spawning Enemy: " + _enemy.name);
-
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, transform.rotation);
     }
