@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 076cb2ec4740b3d42bb39d353b9ee50b
+guid: ca74c2fb4259fd640913a44bffdee720
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: playerBullet_0
+      name: EnemyBullet(sprite sheet)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2f0c10502cc5df41bbbc4b553e34815
-      internalID: 114799009
+      spriteID: 6cdc472415b92044a8b1b03150475d0d
+      internalID: -1967442560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_1
+      name: EnemyBullet(sprite sheet)_1
       rect:
         serializedVersion: 2
         x: 100
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed1f048a3f1a5a146838cfd435be60db
-      internalID: -2029493480
+      spriteID: 0ea70f49adbfe7a4493d587747a30da3
+      internalID: 1849194458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_2
+      name: EnemyBullet(sprite sheet)_2
       rect:
         serializedVersion: 2
         x: 200
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eddcfc4cdf867f84b8265427e2ef31ea
-      internalID: 444500426
+      spriteID: 5ae2b99e8caeb3b4b9aa217b6f85c0e8
+      internalID: 512841024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_3
+      name: EnemyBullet(sprite sheet)_3
       rect:
         serializedVersion: 2
         x: 300
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9eeb0df9afc1b8448bf239c5576ec06
-      internalID: 1255559851
+      spriteID: 83b6b42c1eff6b148820b2b3a76e6e25
+      internalID: 580219379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_4
+      name: EnemyBullet(sprite sheet)_4
       rect:
         serializedVersion: 2
         x: 400
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a1229375650a349a47326937c9235c
-      internalID: 1112303554
+      spriteID: 4108ee9df4c85ed4b8381d53d2fc86a3
+      internalID: 1093777625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_5
+      name: EnemyBullet(sprite sheet)_5
       rect:
         serializedVersion: 2
         x: 500
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd692c261f358fe4894abeb816bb11c0
-      internalID: 1458818011
+      spriteID: 9ddd807917b969240b01e806a3835f9f
+      internalID: -1014262530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_6
+      name: EnemyBullet(sprite sheet)_6
       rect:
         serializedVersion: 2
         x: 600
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af54d94f4eacd5c479829db06d6d09eb
-      internalID: -1451673501
+      spriteID: c7764591cb49ee14fa44dbcd94dbc6b1
+      internalID: 364646618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_7
+      name: EnemyBullet(sprite sheet)_7
       rect:
         serializedVersion: 2
         x: 700
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0425bac41bf36041b989a6e7f345ba4
-      internalID: 1753930593
+      spriteID: 4f383cc03f975c945be43c7644c26319
+      internalID: -1728602814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_8
+      name: EnemyBullet(sprite sheet)_8
       rect:
         serializedVersion: 2
         x: 800
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3de8c95ea7cbb3458bca7e49b4646f5
-      internalID: -360232054
+      spriteID: 3a3bd9772fbf9114aa0806e037cf036d
+      internalID: -162742740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_9
+      name: EnemyBullet(sprite sheet)_9
       rect:
         serializedVersion: 2
         x: 900
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 928e711831c2c6c41ad882cf43afe88a
-      internalID: 846297367
+      spriteID: 921fc1dabad55e049a877b1e3cb44e28
+      internalID: -266402560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_10
+      name: EnemyBullet(sprite sheet)_10
       rect:
         serializedVersion: 2
         x: 1000
@@ -328,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd762e15ddd4de4bbbc2fffea66fa83
-      internalID: 1660561953
+      spriteID: 47cf5ae9636a66e45b7ebd79c73554d2
+      internalID: -650859921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_11
+      name: EnemyBullet(sprite sheet)_11
       rect:
         serializedVersion: 2
         x: 1100
@@ -349,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad82ec372f3cdb14f830a57a1e0ccdfa
-      internalID: 1229388098
+      spriteID: 299b49a0008fef64fa9f00c67b45d93e
+      internalID: 284378974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_12
+      name: EnemyBullet(sprite sheet)_12
       rect:
         serializedVersion: 2
         x: 1200
@@ -370,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 147ebf8d1ec328a4087a400ee4d74d2e
-      internalID: -1400659262
+      spriteID: a99a0bf13a991c44d96fdefeb241b143
+      internalID: 920819467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_13
+      name: EnemyBullet(sprite sheet)_13
       rect:
         serializedVersion: 2
         x: 1300
@@ -391,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ed9fbdf44d9db9408f343d34c85f997
-      internalID: 1437845993
+      spriteID: 5a34a44606e79e243886c93a2d4dfd65
+      internalID: -273387292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_14
+      name: EnemyBullet(sprite sheet)_14
       rect:
         serializedVersion: 2
         x: 1400
@@ -412,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b9ea3a8f19351c4fada89d11e6c4d2e
-      internalID: -1789124665
+      spriteID: 91cb6b2405dab4340a9a7da661dbccd7
+      internalID: -1576110997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_15
+      name: EnemyBullet(sprite sheet)_15
       rect:
         serializedVersion: 2
         x: 1500
@@ -433,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 678db3b7458f9f745b5d0e58a50e7956
-      internalID: 1687811057
+      spriteID: b77077294f1c96a4791504ab589d50ee
+      internalID: 371244669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_16
+      name: EnemyBullet(sprite sheet)_16
       rect:
         serializedVersion: 2
         x: 1600
@@ -454,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5b5b155387d4684cacab96d7a61e04e
-      internalID: 204524257
+      spriteID: 239caf44eed6be345a1026db251b797a
+      internalID: -1109396433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_17
+      name: EnemyBullet(sprite sheet)_17
       rect:
         serializedVersion: 2
         x: 1700
@@ -475,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b1dd91ba1cbbd47ae28aaea55ec46e
-      internalID: -151691667
+      spriteID: cd7dfe7b065509f4194be657640a0868
+      internalID: -2118082257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_18
+      name: EnemyBullet(sprite sheet)_18
       rect:
         serializedVersion: 2
         x: 1800
@@ -496,14 +496,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c48733de07ed5d4abbf8b651c0ae3c5
-      internalID: -1882421522
+      spriteID: 88110d213115f774faa37a951dd0d8fe
+      internalID: 1487597953
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_19
+      name: EnemyBullet(sprite sheet)_19
       rect:
         serializedVersion: 2
         x: 1900
@@ -517,14 +517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb803b82c26a314fb1dd97e16c1ffaf
-      internalID: 688739279
+      spriteID: 78384be4363364c42849b1306736d075
+      internalID: -1217434652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_20
+      name: EnemyBullet(sprite sheet)_20
       rect:
         serializedVersion: 2
         x: 2000
@@ -538,14 +538,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8669c5e6f6e179e4c8d7d4ad665371a9
-      internalID: -1841842579
+      spriteID: 4d8276ff66b46804eb159f25f9e531e8
+      internalID: -1199045333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_21
+      name: EnemyBullet(sprite sheet)_21
       rect:
         serializedVersion: 2
         x: 2100
@@ -559,14 +559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 710710c8cf3e67341b9473dc20ac31ff
-      internalID: -359238512
+      spriteID: ca9c520189e7a3448860bc2fd1daedce
+      internalID: 183600561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_22
+      name: EnemyBullet(sprite sheet)_22
       rect:
         serializedVersion: 2
         x: 2200
@@ -580,14 +580,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18a079630c152cc4ba3a9459885e4095
-      internalID: 401177810
+      spriteID: 8cf8d89a26b825a4d8fc962346e86032
+      internalID: 1232003047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_23
+      name: EnemyBullet(sprite sheet)_23
       rect:
         serializedVersion: 2
         x: 2300
@@ -601,14 +601,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fff28bf6c3889e24da0ec74e67712bdc
-      internalID: -336824288
+      spriteID: b01c8a74b811ec3498d02da05ee973ce
+      internalID: 1526933116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_24
+      name: EnemyBullet(sprite sheet)_24
       rect:
         serializedVersion: 2
         x: 2400
@@ -622,14 +622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6145a5a95d417e548a03d3a4c2a60ab1
-      internalID: 450177431
+      spriteID: fab0db4cb9583314fa5f5d5769d375f9
+      internalID: 1767525085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_25
+      name: EnemyBullet(sprite sheet)_25
       rect:
         serializedVersion: 2
         x: 2500
@@ -643,14 +643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e284c1c48ed235a46b439824ece1737d
-      internalID: 1054122526
+      spriteID: 4233551c67fa40244a05cba2098c06a4
+      internalID: 1739031958
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: playerBullet_26
+      name: EnemyBullet(sprite sheet)_26
       rect:
         serializedVersion: 2
         x: 2600
@@ -664,8 +664,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6f825d44515804792fcc11e9ceaf26
-      internalID: -863239056
+      spriteID: ebd5a86a23756a4488c8e861394a57e6
+      internalID: -395379953
       vertices: []
       indices: 
       edges: []
@@ -681,33 +681,33 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      playerBullet_17: -151691667
-      playerBullet_21: -359238512
-      playerBullet_12: -1400659262
-      playerBullet_14: -1789124665
-      playerBullet_8: -360232054
-      playerBullet_22: 401177810
-      playerBullet_24: 450177431
-      playerBullet_19: 688739279
-      playerBullet_15: 1687811057
-      playerBullet_9: 846297367
-      playerBullet_18: -1882421522
-      playerBullet_23: -336824288
-      playerBullet_2: 444500426
-      playerBullet_0: 114799009
-      playerBullet_3: 1255559851
-      playerBullet_1: -2029493480
-      playerBullet_4: 1112303554
-      playerBullet_10: 1660561953
-      playerBullet_7: 1753930593
-      playerBullet_26: -863239056
-      playerBullet_11: 1229388098
-      playerBullet_6: -1451673501
-      playerBullet_13: 1437845993
-      playerBullet_16: 204524257
-      playerBullet_20: -1841842579
-      playerBullet_25: 1054122526
-      playerBullet_5: 1458818011
+      EnemyBullet(sprite sheet)_9: -266402560
+      EnemyBullet(sprite sheet)_7: -1728602814
+      EnemyBullet(sprite sheet)_4: 1093777625
+      EnemyBullet(sprite sheet)_13: -273387292
+      EnemyBullet(sprite sheet)_11: 284378974
+      EnemyBullet(sprite sheet)_18: 1487597953
+      EnemyBullet(sprite sheet)_17: -2118082257
+      EnemyBullet(sprite sheet)_21: 183600561
+      EnemyBullet(sprite sheet)_26: -395379953
+      EnemyBullet(sprite sheet)_5: -1014262530
+      EnemyBullet(sprite sheet)_1: 1849194458
+      EnemyBullet(sprite sheet)_6: 364646618
+      EnemyBullet(sprite sheet)_20: -1199045333
+      EnemyBullet(sprite sheet)_3: 580219379
+      EnemyBullet(sprite sheet)_14: -1576110997
+      EnemyBullet(sprite sheet)_25: 1739031958
+      EnemyBullet(sprite sheet)_10: -650859921
+      EnemyBullet(sprite sheet)_24: 1767525085
+      EnemyBullet(sprite sheet)_19: -1217434652
+      EnemyBullet(sprite sheet)_8: -162742740
+      EnemyBullet(sprite sheet)_16: -1109396433
+      EnemyBullet(sprite sheet)_22: 1232003047
+      EnemyBullet(sprite sheet)_15: 371244669
+      EnemyBullet(sprite sheet)_12: 920819467
+      EnemyBullet(sprite sheet)_23: 1526933116
+      EnemyBullet(sprite sheet)_0: -1967442560
+      EnemyBullet(sprite sheet)_2: 512841024
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
