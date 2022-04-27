@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public bool ballin = true;
     public bool isDead = false;
     public bool shielded = false;
+    public bool deadForGood = false;
 
     // sprites
     public Animator anim;
@@ -261,6 +262,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5);
         // Debug.Log("DIE");
         Destroy(gameObject);
+        deadForGood = true;
     }
 
 

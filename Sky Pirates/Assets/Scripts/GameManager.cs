@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
             dm.stratusInteraction1();
     }
 
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             
         }
 
-        else if (SceneManager.GetActiveScene().buildIndex != 0)
+        else if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             scoreText.text = "Score: " + player.score;
             waveText.text = "Wave " + waves.currentWaveNumber;
@@ -43,11 +43,11 @@ public class GameManager : MonoBehaviour
             {
                 textBox.SetActive(true);
             }
-        }
 
-        if (player.deadForGood)
-        {
-            SceneManager.LoadScene(4);
+            if (player.deadForGood)
+            {
+                SceneManager.LoadScene(4);
+            }
         }
     }
 
