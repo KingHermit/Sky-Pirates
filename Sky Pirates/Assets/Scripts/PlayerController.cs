@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     public Sprite hurty;
     public Sprite dead;
     public Sprite explosion;
+    public Image badges;
+    public Sprite[] icons;
 
     // Scripts
     public ParticleSystem smokin;
@@ -70,6 +72,8 @@ public class PlayerController : MonoBehaviour
         smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        // icons = new Sprite[3];
 
         playerShield.SetActive(false);
     }
@@ -196,12 +200,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cannonball Cooldown Negated!");
             StartCoroutine(EndlessBall());
-
+            badges.sprite = icons[1];
         }
         else if(pUpGen == 2)
         {
             Debug.Log("Shield Received!");
             SummonShield();
+            badges.sprite = icons[0];
         }
         else if (pUpGen == 3)
         {
@@ -209,6 +214,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
+            badges.sprite = icons[2];
         }
     }
 
@@ -217,7 +223,7 @@ public class PlayerController : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("pShield") == null)
         {
             playerShield.SetActive(true);
-
+            badges.GetComponent<Image>().enabled = true;
             shielded = true;
         }
         else
@@ -228,11 +234,13 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator EndlessBall()
     {
+        badges.GetComponent<Image>().enabled = true;
         ballCooldown = 0;
 
         yield return new WaitForSeconds(15f);
 
         ballCooldown = 5;
+        badges.GetComponent<Image>().enabled = false;
     }
 
     // timers
@@ -276,6 +284,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerShield.SetActive(false);
                 shielded = false;
+                badges.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
 
@@ -283,6 +292,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerShield.SetActive(false);
                 shielded = false;
+                badges.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
         }
