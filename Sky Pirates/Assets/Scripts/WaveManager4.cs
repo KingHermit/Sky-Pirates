@@ -16,9 +16,6 @@ public class WaveManager4 : MonoBehaviour
 
     // Enemy Var
     public Transform enemy;
-    public Transform enemySine;
-    public Transform enemyVF;
-    public Transform enemyZZ;
     public Transform enemyBoss;
     public Transform airMines;
     public int count;
@@ -35,6 +32,14 @@ public class WaveManager4 : MonoBehaviour
     // Enemy Spawn
     public Transform[] spawnPoints;
 
+    // Twins Enemy Spawn
+    public Transform leader;
+    public Transform above1;
+    public Transform below1;
+    public Transform middle;
+    public Transform below2;
+    public Transform above2;
+
     // Flying V Enemy Spawn
     public Transform topY3;
     public Transform tMidY2;
@@ -47,9 +52,6 @@ public class WaveManager4 : MonoBehaviour
     public Transform midZZY0;
     public Transform bottomZZY2;
     public Transform endZZY0;
-
-    // Wavy Enemy Spawn
-    public Transform sineSpawnPoint;
 
     // Boss Blimp Spawn
     public Transform bbSpawnPoint;
@@ -173,7 +175,7 @@ public class WaveManager4 : MonoBehaviour
         if (searchCountdown <= 0f)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("airMine") == null && GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("BossBlimp") == null && GameObject.FindGameObjectWithTag("enemyVF") == null && GameObject.FindGameObjectWithTag("enemyZZ") == null && GameObject.FindGameObjectWithTag("enemySine") == null)
+            if (GameObject.FindGameObjectWithTag("airMine") == null && GameObject.FindGameObjectWithTag("enemy") == null && GameObject.FindGameObjectWithTag("BossBlimp") == null)
             {
                 return false;
             }
@@ -212,7 +214,7 @@ public class WaveManager4 : MonoBehaviour
             // Spawn
             for (int i = 0; i < waveFormCount; i++)
             {
-                SpawnFlyingV(enemyVF);
+                SpawnFlyingV(enemy);
                 yield return new WaitForSeconds(10f);
             }
 
@@ -227,23 +229,23 @@ public class WaveManager4 : MonoBehaviour
             // Spawn
             for (int i = 0; i < waveFormCount; i++)
             {
-                SpawnZigZag(enemyZZ);
+                SpawnZigZag(enemy);
                 yield return new WaitForSeconds(8f);
             }
 
             state = SpawnState.WAITING;
         }
-        else if (currentWaveNumber % 7 == 0)
+        else if (currentWaveNumber % 1 == 0)
         {
-            Debug.Log("Incoming Wave " + currentWaveNumber + ": Wavy");
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Twins");
 
             state = SpawnState.SPAWNING;
 
             // Spawn
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < waveFormCount; i++)
             {
-                SpawnSineWave(enemySine);
-                yield return new WaitForSeconds(10f / rate);
+                SpawnTwins(enemy);
+                yield return new WaitForSeconds(10f);
             }
 
             state = SpawnState.WAITING;
@@ -272,7 +274,7 @@ public class WaveManager4 : MonoBehaviour
     {
         if (currentWaveNumber >= 6)
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < count; i++)
             {
                 SpawnMines(airMines);
                 Debug.Log("Mines Deployed");
@@ -354,9 +356,14 @@ public class WaveManager4 : MonoBehaviour
         Instantiate(_enemy, bottomY3.position, transform.rotation);
     }
 
-    void SpawnSineWave(Transform _enemy)
+    void SpawnTwins(Transform _enemy)
     {
-        Instantiate(_enemy, sineSpawnPoint.position, transform.rotation);
+        Instantiate(_enemy, leader.position, transform.rotation);
+        Instantiate(_enemy, above1.position, transform.rotation);
+        Instantiate(_enemy, below1.position, transform.rotation);
+        Instantiate(_enemy, middle.position, transform.rotation);
+        Instantiate(_enemy, above2.position, transform.rotation);
+        Instantiate(_enemy, below2.position, transform.rotation);
     }
 
     void SpawnBlimp(Transform _blimp)

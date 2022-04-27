@@ -174,6 +174,40 @@ public class PlayerController : MonoBehaviour
     }
 
     // Random Power Up commands
+    void MedicalAssistance()
+    {
+        int pUpGen = Random.Range(1, 5);
+
+        if (pUpGen == 1)
+        {
+            Debug.Log("Health Restored!");
+            health = 100;
+            healthBarScript.UpdateHealthBarToFull();
+        }
+        else if (pUpGen == 2)
+        {
+            Debug.Log("Health Restored!");
+            health = 100;
+            healthBarScript.UpdateHealthBarToFull();
+        }
+        else if (pUpGen == 3)
+        {
+            Debug.Log("Health Restored!");
+            health = 100;
+            healthBarScript.UpdateHealthBarToFull();
+        }
+        else if(pUpGen == 4)
+        {
+            Debug.Log("Cannonball Cooldown Negated!");
+            StartCoroutine(EndlessBall());
+        }
+        else if (pUpGen == 5)
+        {
+            Debug.Log("Cannonball Cooldown Negated!");
+            StartCoroutine(EndlessBall());
+        }
+    }
+
     void RanPUpWOShield()
     {
         int pUpGen = Random.Range(1, 2);
@@ -295,6 +329,13 @@ public class PlayerController : MonoBehaviour
                 badges.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
+
+            if (collision.gameObject.tag == "airMine")
+            {
+                playerShield.SetActive(false);
+                shielded = false;
+                Destroy(collision.gameObject);
+            }
         }
         else if (shielded != true)
         {
@@ -351,7 +392,11 @@ public class PlayerController : MonoBehaviour
 
 
             // Debug.Log("random powerup");
-            if(shielded == true)
+            if(health <= 50)
+            {
+                MedicalAssistance();
+            }
+            else if(shielded == true)
             {
                 RanPUpWOShield();
             }
