@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 86569902}
   m_Layer: 8
   m_Name: Below 1
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 254675454}
   m_Layer: 8
   m_Name: Leader
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11519,7 +11519,7 @@ GameObject:
   - component: {fileID: 720935092}
   m_Layer: 8
   m_Name: Above 2
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12135,7 +12135,7 @@ GameObject:
   - component: {fileID: 947026483}
   m_Layer: 8
   m_Name: Middle
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12652,7 +12652,7 @@ GameObject:
   - component: {fileID: 1005316949}
   m_Layer: 8
   m_Name: Below 2
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14373,7 +14373,7 @@ GameObject:
   - component: {fileID: 1803273909}
   m_Layer: 8
   m_Name: Above 1
-  m_TagString: enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

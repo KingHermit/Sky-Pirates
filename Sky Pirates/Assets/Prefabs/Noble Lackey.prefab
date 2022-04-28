@@ -108,11 +108,11 @@ MonoBehaviour:
   rofTimer: 0
   bulletCount: 0
   health: 25
-  explosion: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
+  explode: {fileID: 21300000, guid: 196beea024896134e90a1f37936c91b9, type: 3}
   canShoot: 1
   readyToShoot: 0
   isDead: 0
-  ball: {fileID: 1054865454509233485, guid: d21d4f2eccc63a9468ee571aff675e2f, type: 3}
+  ball: {fileID: 3578376709943573680, guid: 48e512b06cb1f1345872b459dd6abb37, type: 3}
   player: {fileID: 0}
   InvisWall: {fileID: 0}
   mask:

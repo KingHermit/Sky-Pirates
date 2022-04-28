@@ -11,7 +11,7 @@ public class NobleController : MonoBehaviour
     public int bulletCount = 0;
 
     public int health = 25;
-    public Sprite explosion;
+    public Sprite explode;
 
     public bool canShoot = true;
     public bool readyToShoot = false;
@@ -21,6 +21,7 @@ public class NobleController : MonoBehaviour
     public GameObject player;
     public GameObject InvisWall;
 
+    private Animator anim;
     private AudioSource speaker;
 
     public LayerMask mask;
@@ -34,6 +35,7 @@ public class NobleController : MonoBehaviour
         rB = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         InvisWall = GameObject.FindGameObjectWithTag("InvisWall");
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -46,12 +48,12 @@ public class NobleController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 11);
         Physics2D.IgnoreLayerCollision(6, 12);
         Physics2D.IgnoreLayerCollision(8, 3);
-        Physics2D.IgnoreLayerCollision(8,6);
+        Physics2D.IgnoreLayerCollision(8, 6);
         Physics2D.IgnoreLayerCollision(8, 12);
 
         if (canShoot & readyToShoot & bulletCount < 3)
         {
-            GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0,0,0));
+            GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0, 0, 0));
             bulletCount++;
             Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), b.GetComponent<BoxCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-ballSpeed, 0);
@@ -65,7 +67,7 @@ public class NobleController : MonoBehaviour
                 StartCoroutine("bulletCooldown");
             }
         }
-        
+
         if (canShoot == false && rofTimer < rateOfFire & readyToShoot)
         {
             rofTimer += Time.deltaTime;
@@ -78,33 +80,46 @@ public class NobleController : MonoBehaviour
         }
 
         // DIE CODE
-        if (health < 1 & !isDead)
+        if (health <= 0 && !isDead)
         {
+
             player.GetComponentInParent<PlayerController>().score += 10;
-            StartCoroutine("dead");
+            isDead = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDead)
+        {
+            anim.SetBool("dead", true);
+            speaker.Play();
+            GetComponent<CircleCollider2D>().enabled = false;
+            Destroy(gameObject, 1f);
         }
     }
 
 
-
     // bullet shoot interval
-    IEnumerator bulletCooldown ()
+    IEnumerator bulletCooldown()
     {
         //Debug.Log("Wait for it");
         yield return new WaitForSeconds(5);
         bulletCount = 0;
     }
 
+    /*
     IEnumerator dead()
     {
         // Debug.Log("explosion")
         isDead = true;
         speaker.Play();
-        gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+        gameObject.GetComponent<SpriteRenderer>().sprite = explode;
         yield return new WaitForSeconds(0.3f);
-        Destroy(gameObject);
+        // Debug.Log("exploded");
+        Destroy(gameObject, );
     }
-
+    */
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
