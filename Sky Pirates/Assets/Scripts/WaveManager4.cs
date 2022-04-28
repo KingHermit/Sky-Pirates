@@ -108,7 +108,6 @@ public class WaveManager4 : MonoBehaviour
             {
                 // Start spawning wave
                 StartCoroutine(SpawnWave());
-                Debug.Log("Air mine deploying!");
                 StartCoroutine(SpawnAirMines());
             }
         }
@@ -235,7 +234,7 @@ public class WaveManager4 : MonoBehaviour
 
             state = SpawnState.WAITING;
         }
-        else if (currentWaveNumber % 1 == 0)
+        else if (currentWaveNumber % 2 == 0)
         {
             Debug.Log("Incoming Wave " + currentWaveNumber + ": Twins");
 
@@ -277,7 +276,7 @@ public class WaveManager4 : MonoBehaviour
             for (int i = 0; i < count; i++)
             {
                 SpawnMines(airMines);
-                Debug.Log("Mines Deployed");
+                Debug.Log("Air Mines deploying!");
                 yield return new WaitForSeconds(4f);
             }
         }

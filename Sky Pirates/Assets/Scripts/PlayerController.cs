@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(7, 3);
         Physics2D.IgnoreLayerCollision(7, 12);
-
         // MOVEMENT CODE
         Vector2 velocity = myRb.velocity;
 

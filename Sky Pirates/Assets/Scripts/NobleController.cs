@@ -46,13 +46,14 @@ public class NobleController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 11);
         Physics2D.IgnoreLayerCollision(6, 12);
         Physics2D.IgnoreLayerCollision(8, 3);
+        Physics2D.IgnoreLayerCollision(8,6);
         Physics2D.IgnoreLayerCollision(8, 12);
 
         if (canShoot & readyToShoot & bulletCount < 3)
         {
-            GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0,0,90));
+            GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0,0,0));
             bulletCount++;
-            Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), b.GetComponent<CapsuleCollider2D>());
+            Physics2D.IgnoreCollision(GetComponent<CircleCollider2D>(), b.GetComponent<BoxCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(-ballSpeed, 0);
 
             canShoot = false;
