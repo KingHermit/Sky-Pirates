@@ -82,9 +82,10 @@ public class NobleController : MonoBehaviour
         // DIE CODE
         if (health <= 0 && !isDead)
         {
-
+            GetComponent<CircleCollider2D>().enabled = false;
             player.GetComponentInParent<PlayerController>().score += 10;
             isDead = true;
+            speaker.Play();
         }
     }
 
@@ -93,8 +94,6 @@ public class NobleController : MonoBehaviour
         if (isDead)
         {
             anim.SetBool("dead", true);
-            speaker.Play();
-            GetComponent<CircleCollider2D>().enabled = false;
             Destroy(gameObject, 1f);
         }
     }

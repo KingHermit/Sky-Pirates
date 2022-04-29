@@ -13304,15 +13304,15 @@ MonoBehaviour:
     names:
     - Coco
     - Bandanit
-    - Stratus
+    - Coco
     talksprites:
     - {fileID: 21300000, guid: 3265d85f46614af4b956686f581e90a7, type: 3}
     - {fileID: 21300000, guid: 7185141c04724e0469dbcde67dbb9cbc, type: 3}
-    - {fileID: 21300000, guid: d45321a6dba5416439d7e626a28b082e, type: 3}
+    - {fileID: 21300000, guid: 3265d85f46614af4b956686f581e90a7, type: 3}
     sentences:
     - hey hey HEY WHAT ARE YOU DOING
     - mmmm powerup
-    - Get em' son!
+    - YOU NEED TO PAY FOR THAT
 --- !u!4 &1182936551
 Transform:
   m_ObjectHideFlags: 0
@@ -13453,6 +13453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422496330}
   - component: {fileID: 1422496329}
+  - component: {fileID: 1422496331}
   m_Layer: 0
   m_Name: Dialogue Manager
   m_TagString: Untagged
@@ -13479,6 +13480,7 @@ MonoBehaviour:
   Coco: {fileID: 1182936549}
   Coco2: {fileID: 1730712631}
   Coco3: {fileID: 1141049576}
+  speaker: {fileID: 0}
   inConvo: 0
 --- !u!4 &1422496330
 Transform:
@@ -13495,6 +13497,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1422496331
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422496328}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf58b2efaff3553488a6ff8bd227e98e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1425637824
 GameObject:
   m_ObjectHideFlags: 0

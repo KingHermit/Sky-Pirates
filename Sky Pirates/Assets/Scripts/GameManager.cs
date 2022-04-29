@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text waveText;
 
+    public Text finalScore;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class GameManager : MonoBehaviour
 
             if (player.deadForGood)
             {
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(3);
             }
         }
     }
@@ -61,15 +62,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void highScore()
-    {
-        SceneManager.LoadScene(2);
-    }
-
     public void creditsScene()
     {
 
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
 
     }
 }

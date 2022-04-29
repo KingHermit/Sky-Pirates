@@ -19,11 +19,15 @@ public class dialogueManager : MonoBehaviour
     public GameObject Coco2;
     public GameObject Coco3;
 
+    public AudioSource speaker;
+
     public bool inConvo = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        speaker = GetComponent<AudioSource>();
+
         // new sentence
         sentences = new Queue<string>();
 
@@ -81,6 +85,7 @@ public class dialogueManager : MonoBehaviour
         nameText.text = name;
         spriteImage.sprite = sprite;
         StartCoroutine(TypeSentence(sentence));
+        speaker.Play();
     }
 
     // type the sentence out
