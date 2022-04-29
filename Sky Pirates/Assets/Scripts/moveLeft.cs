@@ -38,28 +38,9 @@ public class moveLeft : MonoBehaviour
             moveSpeed = 2f;
         } else if (gameObject.tag == "enemy" & inShootZone)
         {
-            moveSpeed = 0.6f;
-        }
-
-        // Flying V
-        if (gameObject.tag == "enemyVF" & !inShootZone)
-        {
             moveSpeed = 1.5f;
         }
-        else if (gameObject.tag == "enemyVF" & inShootZone)
-        {
-            moveSpeed = 1.5f;
-        }
-
-        // Zig-Zag
-        if (gameObject.tag == "enemyZZ" & !inShootZone)
-        {
-            moveSpeed = 1.5f;
-        }
-        else if (gameObject.tag == "enemyZZ" & inShootZone)
-        {
-            moveSpeed = 1.5f;
-        }
+        
 
         myRB.velocity = new Vector2(-moveSpeed, 0);
 

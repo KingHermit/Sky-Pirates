@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     // lifespans and Timers
     public float bulletLifespan = 2.5f;
     public float ballCooldown = 5;
+    public float bulletCooldown = .15f;
 
     // healths
     public int health = 100;
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public int money = 0;
 
     // bools
+    public bool firing = true;
     public bool ballin = true;
     public bool isDead = false;
     public bool shielded = false;
@@ -82,6 +84,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Physics2D.IgnoreLayerCollision(7, 3);
+        Physics2D.IgnoreLayerCollision(7, 7);
         Physics2D.IgnoreLayerCollision(7, 12);
         // MOVEMENT CODE
         Vector2 velocity = myRb.velocity;
@@ -93,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
         // SHOOT CODE
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !dialogue.inConvo)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && firing && !dialogue.inConvo)
         {
             // audioClip = sounds[0];
             speaker.clip = sounds[0];
@@ -101,6 +104,7 @@ public class PlayerController : MonoBehaviour
             GameObject b = Instantiate(bullet, transform);
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), b.GetComponent<BoxCollider2D>());
             b.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed, 0);
+            StartCoroutine("RateOfFire");
             Destroy(b, bulletLifespan);
         }
 
@@ -179,31 +183,34 @@ public class PlayerController : MonoBehaviour
 
         if (pUpGen == 1)
         {
+            healthRestore.Play();
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
         }
         else if (pUpGen == 2)
         {
+            healthRestore.Play();
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
         }
         else if (pUpGen == 3)
         {
-            Debug.Log("Health Restored!");
+            healthRestore.Play();
+            Debug.Log("Coco Generous: Health Restored & Shield!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
+
+            SummonShield();
+            badges.sprite = icons[0];
         }
         else if(pUpGen == 4)
         {
-            Debug.Log("Cannonball Cooldown Negated!");
-            StartCoroutine(EndlessBall());
-        }
-        else if (pUpGen == 5)
-        {
-            Debug.Log("Cannonball Cooldown Negated!");
-            StartCoroutine(EndlessBall());
+            healthRestore.Play();
+            Debug.Log("Health Restored!");
+            health = 100;
+            healthBarScript.UpdateHealthBarToFull();
         }
     }
 
@@ -268,7 +275,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator EndlessBall()
     {
         badges.GetComponent<Image>().enabled = true;
-        ballCooldown = 0;
+        ballCooldown = 1f;
 
         yield return new WaitForSeconds(15f);
 
@@ -277,6 +284,15 @@ public class PlayerController : MonoBehaviour
     }
 
     // timers
+
+    IEnumerator RateOfFire()
+    {
+        firing = false;
+        // Debug.Log("Wait for it");
+        yield return new WaitForSeconds(bulletCooldown);
+        firing = true;
+        // Debug.Log("Done");
+    }
 
     IEnumerator cannonCooldown ()
     {
@@ -321,7 +337,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            if (collision.gameObject.tag == "enemy")
             {
                 playerShield.SetActive(false);
                 shielded = false;
@@ -347,7 +363,7 @@ public class PlayerController : MonoBehaviour
                 // Debug.Log("I've been hit by bullets!");
             }
 
-            if (collision.gameObject.tag == "enemy" || collision.gameObject.tag == "enemyVF" || collision.gameObject.tag == "enemyZZ" || collision.gameObject.tag == "enemySine")
+            if (collision.gameObject.tag == "enemy")
             {
                 collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
                 StartCoroutine("ow");

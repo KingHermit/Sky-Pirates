@@ -27,7 +27,7 @@ public class BlimpController : MonoBehaviour
     public GameObject player;
 
     // Nobles
-    public Transform enemyVF;
+    public Transform enemy;
 
     // Nobles SP
     public Transform topY3;
@@ -57,6 +57,7 @@ public class BlimpController : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(11, 3);
         Physics2D.IgnoreLayerCollision(11, 12);
+        Physics2D.IgnoreLayerCollision(11, 9);
 
         // Moving to Position
         if (inPosition == false)
@@ -80,7 +81,7 @@ public class BlimpController : MonoBehaviour
 
         if (searchingForEnemies == false /* bool switched on after all enemies gone*/)
         {
-            if (GameObject.FindGameObjectWithTag("enemyVF") == null)
+            if (GameObject.FindGameObjectWithTag("enemy") == null)
             {
                 // Problem with isVulnerable and noblesReady
                 StartCoroutine(EnemyVulnerable());
@@ -101,7 +102,7 @@ public class BlimpController : MonoBehaviour
 
         if (inPosition == false)
         {
-            if (transform.position.x <= 14)
+            if (transform.position.x <= 11.5)
             {
                 moveSpeed = 0;
                 inPosition = true;
@@ -164,7 +165,7 @@ public class BlimpController : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            SpawnFlyingV(enemyVF);
+            SpawnFlyingV(enemy);
             yield return new WaitForSeconds(8f);
         }
 
@@ -188,8 +189,23 @@ public class BlimpController : MonoBehaviour
         Instantiate(_enemy, bMidY2.position, transform.rotation);
         Instantiate(_enemy, bottomY3.position, transform.rotation);
     }
-
+    /*
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "pBullet")
+        {
+            health = health - 10;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "pCannon")
+        {
+            health = health - 20;
+            Destroy(collision.gameObject);
+        }
+    }
+    */
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "pBullet")
         {

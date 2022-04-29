@@ -126,11 +126,11 @@ public class WaveManager4 : MonoBehaviour
 
         SpawnShop();
 
-        if (currentWaveNumber % 12 == 0)
+        if (currentWaveNumber % 10 == 0)
         {
             StartCoroutine(TimeCycle(night, day, 5f));
         }
-        else if (currentWaveNumber % 6 == 0)
+        else if (currentWaveNumber % 5 == 0)
         {
             StartCoroutine(TimeCycle(day, night, 5f));
         }
@@ -204,16 +204,16 @@ public class WaveManager4 : MonoBehaviour
         {
             BossWaveReady();
         }
-        else if (currentWaveNumber % 3 == 0)
+        else if (currentWaveNumber % 6 == 0)
         {
-            Debug.Log("Incoming Wave " + currentWaveNumber + ": Flying V");
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Twins");
 
             state = SpawnState.SPAWNING;
 
             // Spawn
             for (int i = 0; i < waveFormCount; i++)
             {
-                SpawnFlyingV(enemy);
+                SpawnTwins(enemy);
                 yield return new WaitForSeconds(10f);
             }
 
@@ -234,16 +234,16 @@ public class WaveManager4 : MonoBehaviour
 
             state = SpawnState.WAITING;
         }
-        else if (currentWaveNumber % 2 == 0)
+        else if (currentWaveNumber % 3 == 0)
         {
-            Debug.Log("Incoming Wave " + currentWaveNumber + ": Twins");
+            Debug.Log("Incoming Wave " + currentWaveNumber + ": Flying V");
 
             state = SpawnState.SPAWNING;
 
             // Spawn
             for (int i = 0; i < waveFormCount; i++)
             {
-                SpawnTwins(enemy);
+                SpawnFlyingV(enemy);
                 yield return new WaitForSeconds(10f);
             }
 
