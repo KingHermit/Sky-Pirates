@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     public Sprite hurty;
     public Sprite dead;
     public Sprite explosion;
-    public Image badges;
+    public Image badge;
+    public Image badge2;
     public Sprite[] icons;
 
     // Scripts
@@ -66,6 +67,11 @@ public class PlayerController : MonoBehaviour
 
 
     int shopCount = 0;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +92,7 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 3);
         Physics2D.IgnoreLayerCollision(7, 7);
         Physics2D.IgnoreLayerCollision(7, 12);
+
         // MOVEMENT CODE
         Vector2 velocity = myRb.velocity;
 
@@ -139,7 +146,7 @@ public class PlayerController : MonoBehaviour
         // HEALTH BAR CODE
 
         
-        if (health < 90 & health > 70)
+        if (health < 100 & health > 70)
         {
             //healthBarScriptImage.GetComponent<Transform>().localScale = new Vector3(12.5f, 0.4438875f, 1);
             healthIcon.GetComponent<Image>().sprite = healthy;
@@ -187,6 +194,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
+            badge.sprite = icons[2];
         }
         else if (pUpGen == 2)
         {
@@ -194,6 +202,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
+            badge.sprite = icons[2];
         }
         else if (pUpGen == 3)
         {
@@ -203,7 +212,7 @@ public class PlayerController : MonoBehaviour
             healthBarScript.UpdateHealthBarToFull();
 
             SummonShield();
-            badges.sprite = icons[0];
+            StartCoroutine("MoreHealth");
         }
         else if(pUpGen == 4)
         {
@@ -211,6 +220,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
+            StartCoroutine("MoreHealth");
         }
     }
 
@@ -222,12 +232,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cannonball Cooldown Negated!");
             StartCoroutine(EndlessBall());
-
+            badge2.sprite = icons[1];
         }
         else if (pUpGen == 2)
         {
             Debug.Log("Health Restored!");
             health = 100;
+            StartCoroutine("MoreHealth");
+            healthRestore.Play();
             healthBarScript.UpdateHealthBarToFull();
         }
     }
@@ -240,13 +252,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cannonball Cooldown Negated!");
             StartCoroutine(EndlessBall());
-            badges.sprite = icons[1];
+            badge.sprite = icons[1];
         }
         else if(pUpGen == 2)
         {
             Debug.Log("Shield Received!");
             SummonShield();
-            badges.sprite = icons[0];
+            badge.sprite = icons[0];
         }
         else if (pUpGen == 3)
         {
@@ -254,7 +266,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Health Restored!");
             health = 100;
             healthBarScript.UpdateHealthBarToFull();
-            badges.sprite = icons[2];
+            StartCoroutine("MoreHealth");
         }
     }
 
@@ -263,7 +275,7 @@ public class PlayerController : MonoBehaviour
         if(GameObject.FindGameObjectWithTag("pShield") == null)
         {
             playerShield.SetActive(true);
-            badges.GetComponent<Image>().enabled = true;
+            badge.GetComponent<Image>().enabled = true;
             shielded = true;
         }
         else
@@ -272,15 +284,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
+    IEnumerator MoreHealth()
+    {
+        if (!shielded)
+        {
+            badge.GetComponent<Image>().enabled = true;
+            badge.sprite = icons[2];
+
+            yield return new WaitForSeconds(15f);
+
+            badge.GetComponent<Image>().enabled = false;
+        }
+        else if (shielded)
+        {
+            badge.GetComponent<Image>().enabled = true;
+            badge.sprite = icons[0];
+
+            badge2.GetComponent<Image>().enabled = true;
+            badge2.sprite = icons[2];
+
+            yield return new WaitForSeconds(15f);
+
+            badge.GetComponent<Image>().enabled = false;
+            badge2.GetComponent<Image>().enabled = false;
+        }
+
+    }
+
     IEnumerator EndlessBall()
     {
-        badges.GetComponent<Image>().enabled = true;
-        ballCooldown = 1f;
+        badge.GetComponent<Image>().enabled = true;
+        ballCooldown = 0.5f;
 
-        yield return new WaitForSeconds(15f);
+        yield return new WaitForSeconds(30f);
 
         ballCooldown = 5;
-        badges.GetComponent<Image>().enabled = false;
+        badge.GetComponent<Image>().enabled = false;
+        badge2.GetComponent<Image>().enabled = false;
     }
 
     // timers
@@ -318,7 +359,6 @@ public class PlayerController : MonoBehaviour
         smokin.Play();
         yield return new WaitForSeconds(5);
         // Debug.Log("DIE");
-        Destroy(gameObject);
         deadForGood = true;
     }
 
@@ -333,7 +373,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerShield.SetActive(false);
                 shielded = false;
-                badges.GetComponent<Image>().enabled = false;
+                badge.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
 
@@ -341,7 +381,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerShield.SetActive(false);
                 shielded = false;
-                badges.GetComponent<Image>().enabled = false;
+                badge.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
 
@@ -368,7 +408,8 @@ public class PlayerController : MonoBehaviour
                 collision.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
                 StartCoroutine("ow");
                 health = health - 20;
-                collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+                // collision.gameObject.GetComponent<SpriteRenderer>().sprite = explosion;
+                collision.gameObject.GetComponent<NobleController>().isDead = true;
                 healthBarScript.UpdateHealthBar(.20f);
                 Destroy(collision.gameObject, 0.5f);
 

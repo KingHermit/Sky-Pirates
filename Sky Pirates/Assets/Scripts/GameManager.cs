@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     // public WaveManager3 waves;
     public WaveManager4 waves;
     public Text scoreText;
+    // public Text otherScoreText;
     public Text waveText;
 
     public Text finalScore;
@@ -19,8 +20,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         if (SceneManager.GetActiveScene().buildIndex == 1)
             dm.stratusInteraction1();
+
+        player = GameObject.Find("Bandanit").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -49,6 +53,11 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene(3);
             }
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            finalScore.text = player.score.ToString();
         }
     }
 
