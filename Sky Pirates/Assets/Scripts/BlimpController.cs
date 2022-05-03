@@ -96,7 +96,7 @@ public class BlimpController : MonoBehaviour
         // DIE CODE
         if (health < 1 & !isDead)
         {
-            player.GetComponentInParent<PlayerController>().score += 100;
+            player.GetComponentInParent<PlayerController>().score += 1000;
             StartCoroutine("Dead");
         }
 

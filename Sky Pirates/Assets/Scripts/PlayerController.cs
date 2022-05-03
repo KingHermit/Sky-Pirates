@@ -358,7 +358,12 @@ public class PlayerController : MonoBehaviour
     {
         smokin.Play();
         yield return new WaitForSeconds(5);
+        smokin.Stop();
+        gameObject.GetComponent<PlayerBoundaries>().enabled = false;
+        gameObject.GetComponent<Transform>().position = new Vector3 (-16.32f, 0.7166769f, 3.5654f);
         // Debug.Log("DIE");
+        // gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        // gameObject.GetComponent<PlayerController>().enabled = false;
         deadForGood = true;
     }
 
