@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public PlayerController player;
+    public GameObject Bandanit;
     public dialogueManager dm;
     public GameObject textBox;
     // public WaveManager3 waves;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Bandanit = GameObject.Find("Bandanit");
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
             dm.stratusInteraction1();
@@ -32,11 +34,12 @@ public class GameManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
-            
+            player.enabled = false;
         }
 
         else if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            player.enabled = true;
             scoreText.text = "Score: " + player.score;
             waveText.text = "Wave " + waves.currentWaveNumber;
 
@@ -57,6 +60,7 @@ public class GameManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().buildIndex == 3)
         {
+            player.enabled = false;
             finalScore.text = player.score.ToString();
         }
     }
@@ -68,7 +72,9 @@ public class GameManager : MonoBehaviour
 
     public void startGame()
     {
+        Destroy(Bandanit);
         SceneManager.LoadScene(1);
+        player.score = 0;
     }
 
     public void creditsScene()
