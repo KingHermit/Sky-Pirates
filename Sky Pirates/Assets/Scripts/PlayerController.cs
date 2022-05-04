@@ -394,6 +394,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerShield.SetActive(false);
                 shielded = false;
+                badge.GetComponent<Image>().enabled = false;
                 Destroy(collision.gameObject);
             }
         }

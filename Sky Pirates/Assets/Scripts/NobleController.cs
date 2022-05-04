@@ -51,7 +51,7 @@ public class NobleController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 6);
         Physics2D.IgnoreLayerCollision(8, 12);
 
-        if (canShoot & readyToShoot & bulletCount < 3)
+        if (canShoot & readyToShoot & bulletCount < 3 & !isDead)
         {
             GameObject b = Instantiate(ball, transform.position, Quaternion.Euler(0, 0, 0));
             bulletCount++;
