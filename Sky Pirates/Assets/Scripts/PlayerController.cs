@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager gm;
+
     // speed variables
     public float playerSpeed;
     public float bulletSpeed;
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
     public Sprite explosion;
     public Image badge;
     public Image badge2;
+    public Image blackScreen;
     public Sprite[] icons;
 
     // Scripts
@@ -76,6 +79,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         dialogue = FindObjectOfType<dialogueManager>();
         smokin.Stop();
         myRb = GetComponent<Rigidbody2D>();
@@ -232,7 +236,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cannonball Cooldown Negated!");
             StartCoroutine(EndlessBall());
-            badge2.sprite = icons[1];
         }
         else if (pUpGen == 2)
         {
@@ -252,7 +255,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Cannonball Cooldown Negated!");
             StartCoroutine(EndlessBall());
-            badge.sprite = icons[1];
+            // badge.sprite = icons[1];
         }
         else if(pUpGen == 2)
         {
@@ -305,8 +308,6 @@ public class PlayerController : MonoBehaviour
             badge2.sprite = icons[2];
 
             yield return new WaitForSeconds(15f);
-
-            badge.GetComponent<Image>().enabled = false;
             badge2.GetComponent<Image>().enabled = false;
         }
 
@@ -314,14 +315,29 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator EndlessBall()
     {
-        badge.GetComponent<Image>().enabled = true;
-        ballCooldown = 0.5f;
+        if (!shielded)
+        {
+            badge.GetComponent<Image>().enabled = true;
+            badge.sprite = icons[1];
+            ballCooldown = 0.5f;
 
-        yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(30f);
 
-        ballCooldown = 5;
-        badge.GetComponent<Image>().enabled = false;
-        badge2.GetComponent<Image>().enabled = false;
+            ballCooldown = 5;
+            badge.GetComponent<Image>().enabled = false;
+            badge2.GetComponent<Image>().enabled = false;
+        } else if (shielded)
+        {
+            badge2.GetComponent<Image>().enabled = true;
+            badge2.sprite = icons[1];
+            ballCooldown = 0.5f;
+
+            yield return new WaitForSeconds(30f);
+
+            ballCooldown = 5;
+            badge2.GetComponent<Image>().enabled = false;
+        }
+
     }
 
     // timers
@@ -356,8 +372,19 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator die()
     {
+        
         smokin.Play();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+        gm.speaker.Stop();
+        blackScreen.GetComponent<Image>().enabled = true;
+        speaker.clip = sounds[3];
+        speaker.Play();
+
+        yield return new WaitForSeconds(1.5f);
+        speaker.clip = sounds[4];
+        speaker.Play();
+
+        yield return new WaitForSeconds(0.7f);
         smokin.Stop();
         gameObject.GetComponent<PlayerBoundaries>().enabled = false;
         gameObject.GetComponent<Transform>().position = new Vector3 (-16.32f, 0.7166769f, 3.5654f);
