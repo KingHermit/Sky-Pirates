@@ -277,7 +277,7 @@ public class WaveManager4 : MonoBehaviour
             {
                 SpawnMines(airMines);
                 Debug.Log("Air Mines deploying!");
-                yield return new WaitForSeconds(4f);
+                yield return new WaitForSeconds(6f);
             }
         }
     }
